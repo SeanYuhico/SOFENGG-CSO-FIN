@@ -1,0 +1,34 @@
+{
+  "name": "sofengg-cso-fin",
+  "version": "1.0.0",
+  "description": "CSO Fin Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kagero1/SOFENGG-CSO-FIN.git"
+  },
+  "keywords": [
+    "SOFENGG",
+    "CSO",
+    "FIN"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kagero1/SOFENGG-CSO-FIN/issues"
+  },
+  "homepage": "https://github.com/Kagero1/SOFENGG-CSO-FIN#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "firebase": "^7.1.0",
+    "hbs": "^4.0.6"
+  },
+  "devDependencies": {}
+}
