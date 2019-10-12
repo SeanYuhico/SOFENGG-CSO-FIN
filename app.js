@@ -10,17 +10,14 @@ const app = express();
 //Controllers
 
 //Others
+app.use(express.static(__dirname + "/public"));
+
+
 hbs.registerPartials(__dirname + "/views/partals", ()=>{
     console.log("Partials are now loaded.");
 });
 
-app.set("view engine", "hbs");
-
-app.use(express.static(__dirname + "/public"));
-
-app.use(session({
-
-}));
+app.set("view engine", ".hbs");
 
 app.use(cparser());
 
@@ -28,8 +25,9 @@ app.use(bparser.json());
 app.use(bparser.urlencoded({extended:true}));
 
 //Routes
-app.get("/", )
-
+app.get("/", (req, res)=>{
+    res.render('../public/views/login.hbs');
+})
 
 //Listen
 app.listen(process.env.PORT || 3000, function(){
