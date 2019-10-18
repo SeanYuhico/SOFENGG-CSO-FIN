@@ -8,7 +8,10 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <script src="../js/user.js"></script>
     </head>
 
     <body>
@@ -23,15 +26,22 @@
                         <form>
                             <div class="form-group">
                                 <label> Email Address </label>
-                                <input type="email" class="form-control" placeholder="Enter Email">
+                                <input id="loginUsername" type="email" class="form-control" placeholder="Enter Email">
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label> 
-                                <input type="password" class="form-control" placeholder="Enter Password">
+                                <input id="loginPassword" type="password" class="form-control" placeholder="Enter Password">
                             </div>
 
-                            <button type="submit" class="btn btn-success"> Login</button>
+                            {{!-- If Incorrect credentials --}}
+                            <div class="logInErrorMessage" style="justify-content: center; text-align:center;">
+                                <br>
+                        
+                            </div>
+                            {{!-- End Incorrect Credentials --}}
+
+                            <button id="btn-login" type="submit" class="btn btn-success"> Login</button>
                         </form>
                     </div>
 

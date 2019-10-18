@@ -16,7 +16,7 @@ function Create(user, callback){
     });
 }
 
-function RetriveOne(username, callback){
+function RetrieveOne(username, callback){
     database.ref('users/' + username).once('value').then(function(snapshot){
         let user = snapshot.val();
         if(user){
@@ -29,7 +29,7 @@ function RetriveOne(username, callback){
     });
 }
 
-function RetriveAll(callback){
+function RetrieveAll(callback){
     database.ref('users').once('value').then(function(snapshot){
         callback(snapshot.val());
     });

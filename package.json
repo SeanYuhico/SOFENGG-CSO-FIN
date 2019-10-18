@@ -28,7 +28,13 @@
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "firebase": "^7.1.0",
-    "hbs": "^4.0.6"
+    "firebase-admin": "^8.6.1",
+    "firebase-functions": "^3.3.0",
+    "googleapis": "^39.2.0",
+    "hbs": "^4.0.6",
+    "lodash": "^4.17.15"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/lodash": "^4.14.144"
+  }
 }
