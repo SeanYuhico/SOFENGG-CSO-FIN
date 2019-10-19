@@ -26,13 +26,15 @@
     "cookie-parser": "^1.4.4",
     "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
-    "firebase": "^7.1.0",
+    "express-session": "^1.17.0",
+    "firebase": "^7.2.1",
     "firebase-admin": "^8.6.1",
     "firebase-functions": "^3.3.0",
     "googleapis": "^39.2.0",
     "hbs": "^4.0.6",
-    "lodash": "^4.17.15"
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.144"

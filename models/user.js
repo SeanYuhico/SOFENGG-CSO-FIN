@@ -3,11 +3,20 @@ const crypto = require("crypto-js");
 
 const database = fb.database;
 
+var connectedRef = fb.database.ref(".info/connected");
+connectedRef.on("value", function(snap) {
+  if (snap.val() === true) {
+    console.log("Firebase Connected");
+  } else {
+    console.log("Firebase Not Connected");
+  }
+});
+
 function Create(user, callback){
     let id = database.ref('users/').push().key;
-    let hash = crypto.AES.encrypt(user.password, user.username).toString();
+    let hash = crypto.AES.encrypt(user.password, user.email).toString();
 
-    database.ref('users/' + user.username).set({
+    database.ref('users/' + user.email).set({
         "email": user.email,
         "password": hash,
         "admin": user.admin
@@ -19,10 +28,14 @@ function Create(user, callback){
 function RetrieveOne(username, callback){
     database.ref('users/' + username).once('value').then(function(snapshot){
         let user = snapshot.val();
+        console.log(user);
         if(user){
             user.username = username;
-            user.password = crypto.AES.decrypt(user.password, username).toString(crypto.enc.Utf8);
-            callback(user)
+            if (user.password != ""){
+                user.password = crypto.AES.decrypt(user.password, user.email).toString(crypto.enc.Utf8);
+            }else
+                user.password = "";
+                callback(user)
         }else {
             callback(null)
         }
@@ -37,8 +50,11 @@ function RetrieveAll(callback){
 
 function Update(username, newData, callback){
     var updates = {};
-    let hash = crypto.AES.encrypt(newData.password, username).toString();
+    console.log(newData.password + "");
+    let hash = crypto.AES.encrypt(newData.password, newData.email).toString();
     newData.password = hash;
+    let key = "email"
+    delete newData[key];
     updates = newData;
     database.ref('/users/' + username).update(updates, (err) => {
         callback(err);

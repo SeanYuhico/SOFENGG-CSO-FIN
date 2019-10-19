@@ -1,12 +1,30 @@
 const userDB = require("../models/user.js");
 
 function authenticate(req, res){
-    let un = req.body.un;
+    let org = req.body.org;
+    let em = req.body.em;
     let pw = req.body.pw;
-    userDB.RetrieveOne(un, (user)=>{
-        if(user && user.password === pw){
-            req.session.usernme = un;
-            req.session.admin = user.admin;
+    userDB.RetrieveOne(org, (organization)=>{
+        if(organization && organization.email === em && organization.password === pw){
+            req.session.email = em;
+            req.session.admin = organization.admin;
+            res.send("OK");
+        }else if(organization && organization.email === em && organization.password == ""){
+            var random = (Math.floor(Math.random() * 90000) + 10000) + "";
+            var user = {
+                password:random,
+                email:em
+            }
+            userDB.Update(org, user, (err) => {
+                if(err){
+                    console.log(err);
+                    console.log("Fail Update");
+                }else{
+                    req.session.organization = org;
+                    req.session.admin = organization.admin;
+                    console.log("Update SUCCESS");
+                }
+            })
             res.send("OK");
         }else{
             res.send("FAIL");
@@ -44,11 +62,12 @@ function RetrieveAll(req, res){
 }
 
 function Create(req, res){
-    let un = 
+    let un = dfv;
 }
 
 module.exports = {
     authenticate,
     logout,
-    RetrieveAll
+    RetrieveAll, 
+    Create
 }
