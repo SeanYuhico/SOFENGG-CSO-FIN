@@ -22,10 +22,15 @@ $(document).ready(()=>{
                     console.log(result);
                     if(result === "OK"){
                         window.location = "/home"
-                    }else if(result === "PASS"){
-                        // $("#passModal").hi
+                    }else if(result === "PASSWORD"){
+                        if($(".loginError").length == 0){
+                            $(".logInErrorMessage").append("<label class='loginError' style='color: green;'>No Password is detected in the database. Generated a new password. Please login again.</label>");
+                        }else{
+                            $(".logInErrorMessage .loginError").remove();
+                            $(".logInErrorMessage").append("<label class='loginError' style='color: green;'>No Password is detected in the database. Generated a new password. Please login again.</label>");
+                        }
                     }else{
-                        if($(".loginErrorMessage").length == 0){
+                        if($(".loginError").length == 0){
                             $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
                         }else{
                             $(".logInErrorMessage .loginError").remove();
@@ -35,7 +40,7 @@ $(document).ready(()=>{
                 }
             });
         }else{
-            if($(".loginErrorMessage").length == 0){
+            if($(".loginError").length == 0){
                 $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be Empty</label>");
             }else{
                 $(".logInErrorMessage .loginError").remove();

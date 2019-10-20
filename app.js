@@ -16,28 +16,12 @@ const userController = require(__dirname + "/controllers/user.js");
 
 //Others
 app.use(express.static(__dirname + "/public"));
-
-
-hbs.registerPartials(__dirname + "/views/partials", ()=>{
-    console.log("Partials are now loaded.");
-});
+hbs.registerPartials(__dirname + "/views/partials", ()=>{ console.log("Partials are now loaded."); });
 app.set("view engine", ".hbs");
-
-app.use(session({
-    secret: "hello",
-    name: "acctCookie",
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-
-    }
-}));
-
 app.use(cparser());
-
+app.use(session({secret: "CSOFIN", name: "acctCookie", resave: false, saveUninitialized: false, cookie: {maxAge: 60 * 60 * 1000}}));
 app.use(bparser.json());
 app.use(bparser.urlencoded({extended:true}));
-
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://sofengg-cso-fin.firebaseio.com"
@@ -45,9 +29,7 @@ admin.initializeApp({
 
 
 //Listen
-app.listen(process.env.PORT || 3001, function(){
-    console.log("Live at port 3001");
-});
+app.listen(process.env.PORT || 3001, function(){console.log("Live at port 3001");});
 
 //Routes
 app.get("/", (req, res)=>{

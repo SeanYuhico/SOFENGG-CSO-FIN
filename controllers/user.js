@@ -6,10 +6,11 @@ function authenticate(req, res){
     let pw = req.body.pw;
     userDB.RetrieveOne(org, (organization)=>{
         if(organization && organization.email === em && organization.password === pw){
-            req.session.email = em;
+            req.session.organization = org;
             req.session.admin = organization.admin;
+            console.log("Session Values: " + req.session.organization + "Admin: " + req.session.admin)
             res.send("OK");
-        }else if(organization && organization.email === em && organization.password == ""){
+        }else if(organization && organization.email === em && pw != "" && organization.password == ""){
             var random = (Math.floor(Math.random() * 90000) + 10000) + "";
             var user = {
                 password:random,
@@ -25,7 +26,7 @@ function authenticate(req, res){
                     console.log("Update SUCCESS");
                 }
             })
-            res.send("OK");
+            res.send("PASSWORD");
         }else{
             res.send("FAIL");
         }
