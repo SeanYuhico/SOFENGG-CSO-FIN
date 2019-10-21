@@ -41,3 +41,4 @@ app.get("/home", (req, res)=>{
     })
 })
 app.post("/login", userController.authenticate);
+app.post("/logout", userController.logout);

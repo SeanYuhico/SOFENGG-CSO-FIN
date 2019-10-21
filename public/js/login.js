@@ -47,5 +47,5 @@ $(document).ready(()=>{
                 $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be Empty</label>");
             }
         }
-    })
+    });
 })
