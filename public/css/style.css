@@ -57,3 +57,9 @@ button{
     margin-top: 10px;
     width: 120px;
 }
+
+#btn-login.btn.btn-success{
+    box-shadow: 0px 0px 10px 0px #000;
+    border-radius: 25px;
+    width: 150px;
+}
