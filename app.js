@@ -40,5 +40,6 @@ app.get("/home", (req, res)=>{
         org : req.session.organization
     })
 })
+app.get("/users", userController.RetrieveAll)
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);

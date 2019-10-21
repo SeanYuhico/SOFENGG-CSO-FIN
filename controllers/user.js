@@ -34,6 +34,7 @@ function authenticate(req, res){
 }
 
 function logout(req, res){
+    console.log("Logged Out Sucessfully");
     req.session.username = null;
     req.session.admin = null;
     req.session.moderator = null;
@@ -44,12 +45,11 @@ function logout(req, res){
 
 function RetrieveAll(req, res){
     let user = null;
-    if (req.session.username){
+    if (req.session.organization){
         user = {};
-        user.username = req.session.username;
+        user.organization = req.session.organization;
         user.admin = req.session.admin;
-        user.moderator = req.session.moderator;
-        if(user.admin){
+        if(user.admin && req.session.organization != ""){
             userDB.RetrieveAll((users) => {
                 res.render("users.hbs", {
                     users: users,
@@ -58,7 +58,9 @@ function RetrieveAll(req, res){
             });
         }
     } else {
-        // res.render("404.hbs");
+        res.render("404.hbs", {
+            admin : req.session.admin
+        });
     }
 }
 
