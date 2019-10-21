@@ -8,7 +8,7 @@ function authenticate(req, res){
         if(organization && organization.email === em && organization.password === pw){
             req.session.organization = org;
             req.session.admin = organization.admin;
-            console.log("Session Values: " + req.session.organization + "Admin: " + req.session.admin)
+            // console.log("Session Values: " + req.session.organization + "Admin: " + req.session.admin);
             res.send("OK");
         }else if(organization && organization.email === em && pw != "" && organization.password == ""){
             var random = (Math.floor(Math.random() * 90000) + 10000) + "";
@@ -35,9 +35,8 @@ function authenticate(req, res){
 
 function logout(req, res){
     console.log("Logged Out Sucessfully");
-    req.session.username = null;
+    req.session.organization = null;
     req.session.admin = null;
-    req.session.moderator = null;
     req.session.cookie.expires = false;
     req.session.destroy();
     res.send("OK")
@@ -65,7 +64,7 @@ function RetrieveAll(req, res){
 }
 
 function Create(req, res){
-    let un = dfv;
+    //create user
 }
 
 module.exports = {

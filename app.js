@@ -36,10 +36,32 @@ app.get("/", (req, res)=>{
     res.render("login.hbs", {});
 });
 app.get("/home", (req, res)=>{
-    res.render("home.hbs", {
-        org : req.session.organization
-    })
+    var authenticated = false;
+
+    console.log("Session: " + req.session.organization);
+ 
+    if(req.session.organization){
+        authenticated = true;
+    }
+ 
+    if(authenticated === true){
+        res.render("home.hbs", {
+            org : req.session.organization
+        })
+    }else{
+        res.render("404.hbs", {
+            org : req.session.organization
+        })
+    }
+    
 })
 app.get("/users", userController.RetrieveAll)
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);
+
+app.use("*", function(req, res){
+    res.render("404.hbs", {
+        org : req.session.organization
+    })
+});
+
