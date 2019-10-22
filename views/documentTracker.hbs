@@ -1,0 +1,26 @@
+<html>
+    <head> 
+        <title>Document Tracker  </title>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <th>Timestamp</th>
+                <th>Date of Submission</th>
+                <th>Submitted By </th>
+                <th>Organization's Name</th>
+            </tr>
+            {{#each Header}}
+                <tr>
+                    <td> {{this.timestamp}} </td>
+                    <td> {{this.dateofsubmission}}</td>
+                    <td> {{this.submittedby}}</td>
+                    <td> {{this.organizationsname}}</td>
+                    
+                </tr>
+            {{/each}}
+        </table>
+    </body>
+
+</html>

@@ -8,6 +8,10 @@ const app = express();
 const {google} = require('googleapis');
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
+const GoogleSpreadsheet = require('google-spreadsheet');
+const {promisify} = require('util');
+const creds = require (__dirname + "/documentTracker.json");
+const doc = new GoogleSpreadsheet('1z_6sjroYPL8_TzMf6BGqWIoDzQoC8dnAIDgRjVVTNPQ');
 
 //Models
 const userDB = require(__dirname + "/models/user.js");
@@ -29,7 +33,21 @@ admin.initializeApp({
 
 
 //Listen
-app.listen(process.env.PORT || 3001, function(){console.log("Live at port 3001");});
+app.listen(process.env.PORT || 3000, function(){console.log("Live at port 3000");});
+
+// Google Sheets API
+let userRows;
+async function accessSpreadsheet() {
+    await promisify(doc.useServiceAccountAuth)(creds);
+    const info = await promisify(doc.getInfo)();
+    const sheet = info.worksheets[0];
+    const rows = await promisify(sheet.getRows)({
+        offset: 1,
+        query: `organizationsname = LSCS`
+    })
+    userRows = rows;
+}
+accessSpreadsheet();
 
 //Routes
 app.get("/", (req, res)=>{
@@ -58,6 +76,12 @@ app.get("/home", (req, res)=>{
 app.get("/users", userController.RetrieveAll)
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);
+
+app.get("/documentTracker", function(req, res){
+    res.render("documentTracker.hbs", {
+        Header : userRows
+    })
+});
 
 app.use("*", function(req, res){
     res.render("404.hbs", {
