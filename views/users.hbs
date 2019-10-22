@@ -1,10 +1,9 @@
 <html>
-    <head> 
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Document Tracker </title>
-
+        <title> ADMIN TABLE </title>
         <!-- Bootstrap -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/font-awesome.min.css">
@@ -12,40 +11,34 @@
         <link href="../css/animate.min.css" rel="stylesheet">
         <link href="../css/style2.css" rel="stylesheet" />
 
-        <!-- JS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
-        <script src="../js/document-tracker.js"></script>
+        <script src="../js/users.js"></script>
         <script src="../js/global.js"></script>
     </head>
 
     <body>
-        {{#if org}}
-            {{#if admin}}
-                {{> adminNav}}
-            {{else}}
-                {{> nav}}
-            {{/if}}
-        {{else}}
-            {{> nav}}
-        {{/if}}
-        <table style="color: black; margin-top: 130px;">
+        {{>adminNav}}
+        <h1>Admin: {{user.organization}}</h1><input type="button" value="Reset"><br><br>
+        
+        <table style="width:100%">
             <tr>
-                <th>Timestamp</th>
-                <th>Date of Submission</th>
-                <th>Submitted By </th>
-                <th>{{org}}</th>
+                <th>Organization</th>
+                <th>Email Address</th>
             </tr>
-            {{#each Header}}
-                <tr>
-                    <td> {{this.timestamp}} </td>
-                    <td> {{this.dateofsubmission}}</td>
-                    <td> {{this.submittedby}}</td>
-                    <td> {{this.organizationsname}}</td>
-                    
-                </tr>
+            
+            {{#each users}}
+                    <tr>
+                        <td>{{@key}}</td>
+                        <td>{{email}}</td>
+                        <td><input type="button" value="Reset"></td>
+                    </tr>
             {{/each}}
+                
         </table>
         {{> footer}}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -58,5 +51,4 @@
             wow = new WOW({}).init();
         </script>
     </body>
-
 </html>

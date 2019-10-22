@@ -17,6 +17,7 @@ const doc = new GoogleSpreadsheet('1z_6sjroYPL8_TzMf6BGqWIoDzQoC8dnAIDgRjVVTNPQ'
 const userDB = require(__dirname + "/models/user.js");
 //Controllers
 const userController = require(__dirname + "/controllers/user.js");
+// const docuController = require(__dirname + "/controllers/document-tracker.js");
 
 //Others
 app.use(express.static(__dirname + "/public"));
@@ -30,24 +31,10 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://sofengg-cso-fin.firebaseio.com"
 });
-
+var documents;
 
 //Listen
-app.listen(process.env.PORT || 3000, function(){console.log("Live at port 3000");});
-
-// Google Sheets API
-let userRows;
-async function accessSpreadsheet() {
-    await promisify(doc.useServiceAccountAuth)(creds);
-    const info = await promisify(doc.getInfo)();
-    const sheet = info.worksheets[0];
-    const rows = await promisify(sheet.getRows)({
-        offset: 1,
-        query: `organizationsname = LSCS`
-    })
-    userRows = rows;
-}
-accessSpreadsheet();
+app.listen(process.env.PORT || 3001, function(){console.log("Live at port 3001");});
 
 //Routes
 app.get("/", (req, res)=>{
@@ -55,7 +42,6 @@ app.get("/", (req, res)=>{
 });
 app.get("/home", (req, res)=>{
     var authenticated = false;
-
     console.log("Session: " + req.session.organization);
  
     if(req.session.organization){
@@ -64,6 +50,7 @@ app.get("/home", (req, res)=>{
  
     if(authenticated === true){
         res.render("home.hbs", {
+            admin : req.session.admin,
             org : req.session.organization
         })
     }else{
@@ -73,19 +60,40 @@ app.get("/home", (req, res)=>{
     }
     
 })
-app.get("/users", userController.RetrieveAll)
+app.get("/users", userController.RetrieveAll);
+app.get("/documentTracker", async(req, res) => {
+    console.log("Redirect to Docu");
+    await accessSpreadsheet(req.session.organization);
+    if(documents != null){
+        req.session.data = documents;
+        res.render("documentTracker.hbs", {
+            admin : req.session.admin,
+            org : req.session.organization,
+            Header : req.session.data
+        })
+    }else{
+        res.render("404.hbs", {
+            org : req.session.organization
+        })
+    }
+});
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);
-
-app.get("/documentTracker", function(req, res){
-    res.render("documentTracker.hbs", {
-        Header : userRows
-    })
-});
-
 app.use("*", function(req, res){
     res.render("404.hbs", {
         org : req.session.organization
     })
 });
 
+//Retrieve GSheets
+async function accessSpreadsheet(orgName) {
+        await promisify(doc.useServiceAccountAuth)(creds);
+        const info = await promisify(doc.getInfo)();
+        const sheet = info.worksheets[0];
+        const rows = await promisify(sheet.getRows)({
+            offset: 1,
+            query: "organizationsname = " + orgName
+        })
+        documents = rows;
+        console.log("Data Loaded Successfully");
+}

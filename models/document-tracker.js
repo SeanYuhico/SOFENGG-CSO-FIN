@@ -1,3 +1,27 @@
+// Google Sheets API
+// function accessSpreadsheet(user, callback) {
+//     console.log("accessSpreadsheet");
+//     if(user){
+//         user.promisify(user.doc.useServiceAccountAuth)(user.creds);
+//         const info = user.promisify(user.doc.getInfo)();
+//         const sheet = info.worksheets[0];
+//         const rows = user.promisify(sheet.getRows)({
+//             offset: 1,
+//             query: "organizationsname = " + user.organization
+//         })
+//         callback(rows);
+//     }else{
+//         callback(null);
+//     }
+// }
+
+// module.exports = {
+//     accessSpreadsheet
+// }
+
+
+
+
 /*const {google}  = require('googleapis');
 const docsTracker = require('../documentTracker.json');
 

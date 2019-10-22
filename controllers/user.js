@@ -48,7 +48,7 @@ function RetrieveAll(req, res){
         user = {};
         user.organization = req.session.organization;
         user.admin = req.session.admin;
-        if(user.admin && req.session.organization != ""){
+        if(user.admin == 1 && req.session.organization != ""){
             userDB.RetrieveAll((users) => {
                 res.render("users.hbs", {
                     users: users,
