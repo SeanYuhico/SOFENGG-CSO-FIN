@@ -11,6 +11,9 @@
 @import url('animate.css');
 
 
+#WAT{
+  overflow-x: auto;
+}
 
 body {
 	font-family:'Open Sans', Arial, sans-serif;
