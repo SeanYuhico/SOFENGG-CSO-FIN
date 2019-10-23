@@ -11,24 +11,60 @@
         <link href="../css/animate.min.css" rel="stylesheet">
         <link href="../css/style2.css" rel="stylesheet" />
 
+<!--
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
             crossorigin="anonymous">
+-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
         <script src="../js/users.js"></script>
         <script src="../js/global.js"></script>
+        
+         <style>
+            #admin{
+                color:black;
+                margin-top:100px;
+            }
+            #table1 {
+              border-collapse: collapse;
+              width: 100%;
+            }
+
+            #table1 td, #table1 th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+            
+            #table1 td{
+                color:black;
+            }
+
+            #table1 tr:nth-child(even){background-color: #f2f2f2;}
+
+            #table1 tr:hover {background-color: #ddd;}
+
+            #table1 th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #4CAF50;
+              color: white;
+            }
+        </style>
+        
     </head>
 
     <body>
         {{>adminNav}}
-        <h1>Admin: {{user.organization}}</h1><input type="button" value="Reset"><br><br>
+       <div id="admin"> <h1>Admin: {{user.organization}}</h1><input type="button" value="Reset"><br><br></div>
         
-        <table style="width:100%">
+        <table id="table1" style="width:100%">
             <tr>
                 <th>Organization</th>
                 <th>Email Address</th>
+                <th></th>
             </tr>
             
             {{#each users}}
