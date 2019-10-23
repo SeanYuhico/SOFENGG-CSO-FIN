@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+}
+  
+th, td {
+    font-weight: unset;
+    padding-right: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+  
+.column1 {
+    width: 33%;
+    padding-left: 40px;
+}
+  
+.column2 {
+    width: 13%;
+}
+  
+.column3 {
+    width: 22%;
+}
+  
+.column4 {
+    width: 19%;
+}
+  

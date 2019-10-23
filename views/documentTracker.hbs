@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../css/animate.css">
         <link href="../css/animate.min.css" rel="stylesheet">
         <link href="../css/style2.css" rel="stylesheet" />
+        <link href="../css/document.css" rel="stylesheet" />
 
         <!-- JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,23 +31,28 @@
         {{else}}
             {{> nav}}
         {{/if}}
-        <table style="color: black; margin-top: 130px;">
-            <tr>
-                <th>Timestamp</th>
-                <th>Date of Submission</th>
-                <th>Submitted By </th>
-                <th>{{org}}</th>
-            </tr>
-            {{#each Header}}
-                <tr>
-                    <td> {{this.timestamp}} </td>
-                    <td> {{this.dateofsubmission}}</td>
-                    <td> {{this.submittedby}}</td>
-                    <td> {{this.organizationsname}}</td>
-                    
-                </tr>
-            {{/each}}
-        </table>
+        <div>
+            <table style="color: black; margin-top: 130px;">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="cell100 column1">Timestamp</th>
+                        <th class="cell100 column2">Date of Submission</th>
+                        <th class="cell100 column3">Submitted By </th>
+                        <th class="cell100 column4">{{org}}</th>
+                    </tr>
+                </thead>
+                {{#each Header}}
+                    <tr class="row100 body">
+                        <td class="cell100 column1"> {{this.timestamp}} </td>
+                        <td class="cell100 column2"> {{this.dateofsubmission}}</td>
+                        <td class="cell100 column3"> {{this.submittedby}}</td>
+                        <td class="cell100 column4"> {{this.organizationsname}}</td>
+                        
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+        
         {{> footer}}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery.min.js"></script>
