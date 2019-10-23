@@ -15,6 +15,7 @@ const doc = new GoogleSpreadsheet('1z_6sjroYPL8_TzMf6BGqWIoDzQoC8dnAIDgRjVVTNPQ'
 
 //Models
 const userDB = require(__dirname + "/models/user.js");
+const DocTrackerModel = require(__dirname + "/models/document-tracker.js");
 //Controllers
 const userController = require(__dirname + "/controllers/user.js");
 // const docuController = require(__dirname + "/controllers/document-tracker.js");
@@ -24,7 +25,7 @@ app.use(express.static(__dirname + "/public"));
 hbs.registerPartials(__dirname + "/views/partials", ()=>{ console.log("Partials are now loaded."); });
 app.set("view engine", ".hbs");
 app.use(cparser());
-app.use(session({secret: "CSOFIN", name: "acctCookie", resave: false, saveUninitialized: false, cookie: {maxAge: 60 * 60 * 1000}}));
+app.use(session({secret: "CSOFIN", name: "acctCookie", resave: false, saveUninitialized: false, cookie: {maxAge: 365 * 24 * 60 * 60 * 1000}}));
 app.use(bparser.json());
 app.use(bparser.urlencoded({extended:true}));
 admin.initializeApp({
@@ -61,9 +62,10 @@ app.get("/home", (req, res)=>{
     
 })
 app.get("/users", userController.RetrieveAll);
+
 app.get("/documentTracker", async(req, res) => {
     console.log("Redirect to Docu");
-    await accessSpreadsheet(req.session.organization);
+    documents = await DocTrackerModel.getSpreadsheetRows(req.session.organization);
     if(documents != null){
         req.session.data = documents;
         res.render("documentTracker.hbs", {
@@ -71,12 +73,13 @@ app.get("/documentTracker", async(req, res) => {
             org : req.session.organization,
             Header : req.session.data
         })
-    }else{
+    } else{
         res.render("404.hbs", {
             org : req.session.organization
         })
     }
 });
+
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);
 app.use("*", function(req, res){
@@ -84,16 +87,3 @@ app.use("*", function(req, res){
         org : req.session.organization
     })
 });
-
-//Retrieve GSheets
-async function accessSpreadsheet(orgName) {
-        await promisify(doc.useServiceAccountAuth)(creds);
-        const info = await promisify(doc.getInfo)();
-        const sheet = info.worksheets[0];
-        const rows = await promisify(sheet.getRows)({
-            offset: 1,
-            query: "organizationsname = " + orgName
-        })
-        documents = rows;
-        console.log("Data Loaded Successfully");
-}

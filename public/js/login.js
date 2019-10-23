@@ -1,8 +1,11 @@
 $(document).ready(()=>{
     $("#btn-login").on('click', function(){
-        let org = $("#loginOrgName").val();
-        let em = $("#loginEmail").val();
-        let pw = $("#loginPassword").val();
+        let org = "";
+        org = $("#loginOrgName").val();
+        let em = "";
+        em = $("#loginEmail").val();
+        let pw = "";
+        pw = $("#loginPassword").val();
 
         org = org.toUpperCase();
         org = org.replace(/\s/g, '');
@@ -40,6 +43,37 @@ $(document).ready(()=>{
                 }
             });
         }else{
+            if(org == "" && em == "" && pw == ""){
+                $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
+                $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
+                $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
+            }else if(org == "" && em == ""){
+                $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
+                $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
+                $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
+            }else if(org == "" && pw == ""){
+                $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
+                $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
+                $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
+            }else if(em == "" && pw == ""){
+                $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
+                $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
+                $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
+            }else if(org == ""){
+                $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
+                $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
+                $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
+            }else if(em == ""){
+                $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
+                $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
+                $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
+            }else if(pw == ""){
+                console.log("Password Blank");
+                $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
+                $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
+                $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
+            }
+
             if($(".loginError").length == 0){
                 $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be Empty</label>");
             }else{

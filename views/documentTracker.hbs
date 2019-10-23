@@ -12,8 +12,7 @@
         <link rel="stylesheet" href="../css/animate.css">
         <link href="../css/animate.min.css" rel="stylesheet">
         <link href="../css/style2.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="../css/table.css">
-        
+        <link href="../css/document.css" rel="stylesheet" />
 
         <!-- JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -43,89 +42,30 @@
         {{else}}
             {{> nav}}
         {{/if}}
-        <div id="WAT">
-            <h1> Document Logs</h1>
-        <table id="myTable" style="color: black; margin-top: 130px; border: 1px solid black">
-            <tr>
-                <th>Timestamp</th>
-                <th>Date of Submission</th>
-                <th>Submitted By </th>
-                <th>Organization's Name </th>
-                <th>Title of Activity</th>
-                <th>Activity Description Date</th>
-                <th>Beginning Activity Date</th>
-                <th>Ending Activity Date</th>
-                <th>Type of Process</th>
-                <th>PRS Number</th>
-                <th>Amount Spent / to be Spent </th>
-                <th>Particulars</th>
-                <th>PRS Payable to (N/A for LQ) </th>
-                <th>Petty Cash Voucher Number (Required for PCR) </th>
-                <th>Deposit Official Receipt Number (Required for LQ with Deposit) </th>
-                <th>Actual Revenues</th>
-                <th>Expenses From Sales</th>
-                <th>Expenses from Disbursements</th>
-                <th>Net Income/Loss</th>
-                <th>(Yellow) Deposit Official Receipt Number (FRA)</th>
-                <th>Pended?</th>
-                <th>No. of Revisions</th>
-                <th>Date Pended by CSO Finance Team</th>
-                <th>Remarks</th>
-                <th>Audited By</th>
-                <th>Date Audited</th>
-                <th>Encoded By</th>
-                <th>Date Encoded</th>
-                <th>Date Received by SLIFE</th>
-                <th>Date Received by Accounting Office/Establishment</th>
-                <th>Date Pended by SLIFE</th>
-                <th>Remarks (SLIFE)</th>
-                <th>Date Pended by Accounting Office/Establishment</th>
-                <th>Remarks (Accounting Office/Establishment)</th>
-                <th>Other Remarks</th>
-                <th>Resubmission to SLIFE or Accounting Office/ NOTES</th>
-            </tr>
-            {{#each Header}}
-                <tr>
-                    <td> {{this.timestamp}} </td>
-                    <td> {{this.dateofsubmission}}</td>
-                    <td> {{this.submittedby}}</td>
-                    <td> {{this.organizationsname}}</td>
-                    <td> {{this.titleofactivity}}</td>
-                    <td> {{this.activitydatedescription}}</td>
-                    <td> {{this.beginningactivitydate}}</td>
-                    <td> {{this.endingactivitydate}}</td>
-                    <td> {{this.typeofprocess}}</td>
-                    <td> {{this.prsnumber}}</td>
-                    <td> {{this.amountspenttobespent}}</td>
-                    <td> {{this.particulars}}</td>
-                    <td> {{this.prspayabletonaforlq}}</td>
-                    <td> {{this.pettycashvouchernumberrequiredforpcr}}</td>
-                    <td> {{this.depositofficialreceiptnumberrequiredforlqwithdeposit}}</td>
-                    <td> {{this.actualrevenues}}</td>
-                    <td> {{this.expensesfromsales}}</td>
-                    <td> {{this.expensesfromdisbursements}}</td>
-                    <td> {{this.netincomeloss}}</td>
-                    <td> {{this.yellowdepositofficialreceiptnumberfra}}</td>
-                    <td> {{this.pended}}</td>
-                    <td> {{this.no.ofrevisions}}</td>
-                    <td> {{this.datependedbycsofinanceteam}}</td>
-                    <td> {{this.remarks}}</td>
-                    <td> {{this.auditedby}}</td>
-                    <td> {{this.dateaudited}}</td>
-                    <td> {{this.encodedby}}</td>
-                    <td> {{this.dateencoded}}</td>
-                    <td> {{this.datereceivedbyslife}}</td>
-                    <td> {{this.datependedbyslife}}</td>
-                    <td> {{this.remarksslife}}</td>
-                    <td> {{this.datependedbyaccountingofficeestablishment}}</td>
-                    <td> {{this.remarksaccountingofficeestablishment}}</td>
-                    <td> {{this.otherremarks}}</td>
-                    <td> {{this.resubmissiontoslifeoraccountingofficenotes}}</td>
-                </tr>
-            {{/each}}
-        </table>
+        <div>
+            <table style="color: black; margin-top: 110px;">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Date of Submission</th>
+                        <th>Submitted By </th>
+                        <th>{{org}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Header}}
+                        <tr>
+                            <td> {{this.timestamp}} </td>
+                            <td> {{this.dateofsubmission}}</td>
+                            <td> {{this.submittedby}}</td>
+                            <td> {{this.organizationsname}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+                
+            </table>
         </div>
-    
+        
         {{> footer}}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery.min.js"></script>
