@@ -25,7 +25,7 @@ app.use(express.static(__dirname + "/public"));
 hbs.registerPartials(__dirname + "/views/partials", ()=>{ console.log("Partials are now loaded."); });
 app.set("view engine", ".hbs");
 app.use(cparser());
-app.use(session({secret: "CSOFIN", name: "acctCookie", resave: false, saveUninitialized: false, cookie: {maxAge: 60 * 60 * 1000}}));
+app.use(session({secret: "CSOFIN", name: "acctCookie", resave: false, saveUninitialized: false, cookie: {maxAge: 365 * 24 * 60 * 60 * 1000}}));
 app.use(bparser.json());
 app.use(bparser.urlencoded({extended:true}));
 admin.initializeApp({
