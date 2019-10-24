@@ -1,0 +1,69 @@
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document Tracker </title>
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/animate.css">
+        <link href="../css/animate.min.css" rel="stylesheet">
+        <link href="../css/style2.css" rel="stylesheet" />
+        <link href="../css/document.css" rel="stylesheet" />
+        <link href="../css/table.css" rel="stylesheet" />
+        
+    </head>
+
+    <body>
+            {{#if org}}
+            {{#if admin}}
+                {{> adminNav}}
+            {{else}}
+                {{> nav}}
+            {{/if}}
+        {{else}}
+            {{> nav}}
+        {{/if}}
+        <div id="WAT">
+            <h1 id="documentLabel"> DEBTS </h1>
+            <h2 id="orgLabel"> {{org}} </h2>
+            <table id="myTable" style="color: black; margin-top: 20px; border: 1px solid black">
+                <thead>
+                    <tr>
+                        <th>Establishment</th>
+                        <th>Suppliers/Particulars</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </div>
+        
+        {{> footer}}
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-migrate.min.js"></script>
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
+        <script src="../js/debts.js"></script>
+        <script src="../js/global.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script>
+            wow = new WOW({}).init();
+            
+            $(document).ready( function () {
+                $('#myTable').DataTable();
+            } );
+        </script>
+    </body>
+
+</html>

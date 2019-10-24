@@ -78,7 +78,41 @@ app.get("/documentTracker", async(req, res) => {
             org : req.session.organization
         })
     }
-});
+}); 
+
+app.get("/debts", async(req, res) => {
+    console.log("Redirect to Debts");
+    documents = await DocTrackerModel.getSpreadsheetRows(req.session.organization);
+    if(documents != null){
+        req.session.data = documents;
+        res.render("debts.hbs", {
+            admin : req.session.admin,
+            org : req.session.organization,
+            Header : req.session.data
+        })
+    } else{
+        res.render("404.hbs", {
+            org : req.session.organization
+        })
+    }
+}); 
+
+app.get("/balance", async(req, res) => {
+    console.log("Redirect to Debts");
+    documents = await DocTrackerModel.getSpreadsheetRows(req.session.organization);
+    if(documents != null){
+        req.session.data = documents;
+        res.render("balance.hbs", {
+            admin : req.session.admin,
+            org : req.session.organization,
+            Header : req.session.data
+        })
+    } else{
+        res.render("404.hbs", {
+            org : req.session.organization
+        })
+    }
+}); 
 
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);
