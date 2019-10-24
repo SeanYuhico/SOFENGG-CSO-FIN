@@ -14,14 +14,6 @@
         <link href="../css/style2.css" rel="stylesheet" />
         <link href="../css/document.css" rel="stylesheet" />
         <link href="../css/table.css" rel="stylesheet" />
-
-        <!-- JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
-        <script src="../js/document-tracker.js"></script>
-        <script src="../js/global.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
         
     </head>
 
@@ -35,11 +27,12 @@
         {{else}}
             {{> nav}}
         {{/if}}
+        
+        <h1 id="documentLabel"> DOCUMENT LOGS </h1>
+        <h2 id="orgLabel"> {{org}} </h2>
         <div id="WAT">
-            <h1 id="documentLabel"> DOCUMENT LOGS </h1>
-            <h2 id="orgLabel"> {{org}} </h2>
-            
             <table id="myTable" style="color: black; margin-top: 20px; border: 1px solid black">
+            <thead>
             <tr>
                 <th>Timestamp</th>
                 <th>Date of Submission</th>
@@ -78,6 +71,8 @@
                 <th>Other Remarks</th>
                 <th>Resubmission to SLIFE or Accounting Office/ NOTES</th>
             </tr>
+            </thead>
+            <tbody>
             {{#each Header}}
                 <tr>
                     <td> {{this.timestamp}} </td>
@@ -118,18 +113,30 @@
                     <td> {{this.resubmissiontoslifeoraccountingofficenotes}} </td>
                 </tr>
             {{/each}}
-        </table>
+            
+            </table>
         </div>
         
         {{> footer}}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-migrate.min.js"></script>
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
+        <script src="../js/document-tracker.js"></script>
+        <script src="../js/global.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/wow.min.js"></script>
         <script>
             wow = new WOW({}).init();
+            
+            $(document).ready( function () {
+                $('#myTable').DataTable();
+            } );
         </script>
     </body>
 
