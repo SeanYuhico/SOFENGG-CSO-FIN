@@ -5,5 +5,7 @@ $(document).ready(() => {
     $("#document-nav-link").attr('class', 'active')
     $("#help-nav-link").removeAttr('class', 'active')
     $("#users-nav-link").removeAttr('class', 'active')
+    
+    $('#myTable').DataTable();
 })
 

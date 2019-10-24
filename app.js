@@ -87,7 +87,7 @@ app.get("/documentTracker", async(req, res) => {
             org : req.session.organization,
             Header : req.session.data
         })
-    } else{
+    }else{
         res.render("404.hbs", {
             org : req.session.organization
         })
