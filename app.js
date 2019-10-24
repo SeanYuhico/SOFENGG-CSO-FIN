@@ -39,7 +39,21 @@ app.listen(process.env.PORT || 3001, function(){console.log("Live at port 3001")
 
 //Routes
 app.get("/", (req, res)=>{
-    res.render("login.hbs", {});
+    var authenticated = false;
+    console.log("Session: " + req.session.organization);
+ 
+    if(req.session.organization){
+        authenticated = true;
+    }
+ 
+    if(authenticated === true){
+        res.render("home.hbs", {
+            admin : req.session.admin,
+            org : req.session.organization
+        })
+    }else{
+        res.render("login.hbs", {});
+    }
 });
 app.get("/home", (req, res)=>{
     var authenticated = false;
