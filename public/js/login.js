@@ -1,5 +1,9 @@
 $(document).ready(()=>{
     $("#btn-login").on('click', function(){
+        $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
+        $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
+        $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
+
         let org = "";
         org = $("#loginOrgName").val();
         let em = "";
@@ -68,7 +72,6 @@ $(document).ready(()=>{
                 $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
             }else if(pw == ""){
-                console.log("Password Blank");
                 $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
