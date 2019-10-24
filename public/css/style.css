@@ -1,31 +1,46 @@
 body {
-    background: url("../images/Login\ Background.png") no-repeat fixed;
+    /* background: url("../images/Login\ Background.png") no-repeat fixed; */
+    background-image: linear-gradient(150deg, #74c297, #237768,#00250A);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 
 .main-section{
-    /* margin: 0px 30vw; */
-    margin: 0px 420px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100%;
 }
 
 .modal-dialog{
+    float: right;
+    margin: 0% 10%;
+    height: auto;
     margin-top: 60px;
 }
 .modal-content {
     background-color: #535e51;
-    padding: 0 18px; 
+    padding: 0 18px;
     border-radius: 10px;
     height: 410px;
     width: 400px;
-    /* height: 30vw;
-    width: 29vw; */
     opacity: 1.0;
-    box-shadow: 0px 0px 10px 0px #000;
-    position: absolute;
-    margin-top: 80px;
+    box-shadow: 0px 10px 25px -2px #0e140ca8;
+}
+
+.tagline {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.tagline img {
+    width: 80%;
 }
 
 .user-img img{
@@ -66,3 +81,18 @@ button{
     width: 150px;
 }
 
+.tagline {
+    height: auto;
+    width: auto;
+    max-width: 60%;
+}
+
+@media only screen and (max-width: 1060px) {
+    .tagline {
+        display: none;
+    }
+
+    body {
+        justify-content: center;
+    }
+}
