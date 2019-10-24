@@ -1,7 +1,7 @@
 #myTable {
     font-family:'Open Sans', Arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    max-width: 100%;
     white-space: nowrap;
     margin-left: 10px;
     margin-right: 10px;
