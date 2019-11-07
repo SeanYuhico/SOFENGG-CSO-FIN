@@ -31,7 +31,7 @@
         <h1 id="documentLabel"> DOCUMENT LOGS </h1>
         <h2 id="orgLabel"> {{org}} </h2>
         <div id="WAT">
-            <table id="myTable" style="color: black; margin-top: 20px; border: 1px solid black">
+            <table id="myTable" style="color: black; margin-top: 20px; border: 1px solid black; width: 100%">
             <thead>
             <tr>
                 <th>Timestamp</th>
@@ -117,7 +117,6 @@
                     <td colspan="10" style="text-align: center;">No document available in table</td>
                 </tr>
             {{/each}}
-            
             </table>
         </div>
         
@@ -129,18 +128,28 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
-        <script src="../js/document-tracker.js"></script>
-        <script src="../js/global.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
+        <script src="../js/global.js"></script>    
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/wow.min.js"></script>
+        <script src="../js/document-tracker.js"></script>
+
         <script>
             wow = new WOW({}).init();
             
             $(document).ready( function () {
-                $('#myTable').DataTable();
+                $('#myTable').DataTable({
+                    orderCellsTop: true,
+                    fixedHeader: true,
+                    scrollX:        true,
+                    scrollY:        300,
+                    
+                });
             } );
+
         </script>
     </body>
 
