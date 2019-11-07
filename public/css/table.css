@@ -1,4 +1,4 @@
-#myTable {
+div.dataTables_wrapper {
     font-family:'Open Sans', Arial, sans-serif;
     border-collapse: collapse;
     max-width: 100%;
@@ -7,19 +7,31 @@
     margin-right: 10px;
   }
   
-  #myTable td, #myTable th {
+  td, th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  #myTable tr:nth-child(even){background-color: #f2f2f2;}
+  tr:nth-child(even){background-color: #f2f2f2;}
   
-  #myTable tr:hover {background-color: #ddd;}
+  tr:hover {background-color: #ddd;}
   
-  #myTable th {
+
+  th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #4CAF50;
     color: white;
+  }
+
+  th input {
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  th input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    
   }
