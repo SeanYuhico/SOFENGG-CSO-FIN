@@ -35,3 +35,7 @@ div.dataTables_wrapper {
     color: rgba(255, 255, 255, 0.8);
     
   }
+
+.DTFC_Blocker {
+  background: #fff;
+}
