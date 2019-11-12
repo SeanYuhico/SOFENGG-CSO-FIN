@@ -114,7 +114,15 @@
                         rightColumns: 2
                     }
                 });
-            } );
+                // Filter event handler
+                $(table.table().container()).on( 'keyup', 'thead input', function () {
+                    console.log("hewoo");
+                    table
+                        .column( $(this).data('index') )
+                        .search( this.value )
+                        .draw();
+                } );
+            });
 
             
 

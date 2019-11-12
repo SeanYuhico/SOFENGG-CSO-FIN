@@ -39,3 +39,11 @@ div.dataTables_wrapper {
 .DTFC_Blocker {
   background: #fff;
 }
+
+.filter {
+  width: fit-content;
+}
+
+.fixedCol {
+  width: 30px;
+}
