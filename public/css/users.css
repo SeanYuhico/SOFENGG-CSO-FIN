@@ -1,0 +1,50 @@
+#admin{
+    color:black;
+    margin-top:100px;
+}
+#table1 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table1 td, #table1 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+            
+#table1 td{
+    color:black;
+}
+
+#table1 tr:nth-child(even){background-color: #f2f2f2;}
+
+#table1 tr:hover {background-color: #ddd;}
+
+#table1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#orgsEdit{
+    margin-left: 10px;
+    border-radius: 8px;
+    background-color: #087830;
+    color: white;
+}
+
+.btn{
+    background-color: #087830;
+    color: white;
+    border-radius: 10px;
+}
+
+.modal-body{
+    color:black;
+}
+
+#currentEmail.form-control{
+    color:black;
+}
