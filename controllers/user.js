@@ -83,6 +83,16 @@ function Create(req, res){
     })
 }
 
+function updateDebtsId (req, res) {
+
+
+}
+
+function updateBalanceId (req, res) {
+
+
+}
+
 module.exports = {
     authenticate,
     logout,
