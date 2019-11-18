@@ -10,10 +10,7 @@ $(document).ready(() => {
     
 
     $(".orgsEdit").click(function(){
-        let org = $(this).parent().parent();
-        //console.log(org);
-        userEl = $(this).parent().parent();
-        key = userEl.data('id');
+        key = $(this).parent().parent().data('id');
         //console.log("key: " + key);
         userEl = document.querySelectorAll('[data-id="' + key + '"]')[0];
         //console.log("userel: " + userEl);
