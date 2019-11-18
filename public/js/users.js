@@ -5,4 +5,22 @@ $(document).ready(() => {
     $("#document-nav-link").removeAttr('class', 'active')
     $("#help-nav-link").removeAttr('class', 'active')
     $("#users-nav-link").attr('class', 'active')
+
+    let key, userEl;
+    
+
+    $(".orgsEdit").click(function(){
+        let org = $(this).parent().parent();
+        //console.log(org);
+        userEl = $(this).parent().parent();
+        key = userEl.data('id');
+        //console.log("key: " + key);
+        userEl = document.querySelectorAll('[data-id="' + key + '"]')[0];
+        //console.log("userel: " + userEl);
+        let emailEl = userEl.querySelector('.td-email');
+        
+        document.getElementById("modal-title").textContent = key;
+        document.getElementById("currentEmail").value = emailEl.textContent;
+    });
+    
 })
