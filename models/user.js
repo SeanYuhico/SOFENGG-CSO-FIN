@@ -79,6 +79,20 @@ function Update(username, newData, callback){
     });
 }
 
+function UpdateDebtsSheet(username, link, callback) {
+    let ref = database.ref('/users/' + username);
+    ref.update({debtsKey: link}, err => {
+        callback(err);
+    });
+}
+
+function UpdateBalanceSheet(username, link, callback) {
+    let ref = database.ref('/users/' + username);
+    ref.update({balanceKey: link}, err => {
+        callback(err);
+    });
+}
+
 function Delete(username, callback){
     database.ref('users/' + username).remove((err) => {
         callback(ref);
