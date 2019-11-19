@@ -10,7 +10,7 @@ function authenticate(req, res){
             req.session.admin = organization.admin;
             // console.log("Session Values: " + req.session.organization + "Admin: " + req.session.admin);
             res.send("OK");
-        }else if(organization && organization.email === em && pw != "" && organization.password == ""){
+        } else if(organization && organization.email === em && pw != "" && organization.password == ""){
             var random = (Math.floor(Math.random() * 90000) + 10000) + "";
             var user = {
                 password:random,
@@ -65,6 +65,32 @@ function RetrieveAll(req, res){
 
 function Create(req, res){
     //create user
+    let em = req.body.em;
+    let pw = req.body.pw;
+    var user = {
+        password:random,
+        email:em
+    }
+    userDB.Create(user, (err) => {
+        if(err){
+            console.log(err);
+            console.log("Fail Update");
+            res.send("FAIL");
+        } else{
+            console.log("Update SUCCESS");
+            res.send("SUCCESS");
+        }
+    })
+}
+
+function updateDebtsId (req, res) {
+
+
+}
+
+function updateBalanceId (req, res) {
+
+
 }
 
 module.exports = {
