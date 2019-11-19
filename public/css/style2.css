@@ -11,6 +11,34 @@
 @import url('animate.css');
 
 
+#createNewCard{
+  border-radius: 8px;
+  background-color: #087830;
+  color: white;
+  padding: 20px 20px;
+}
+
+#editCard{
+  border-radius: 8px;
+  background-color: #087830;
+  color: white;
+  padding: 10px 10px;
+}
+
+#deleteCard{
+  border-radius: 8px;
+  background-color: #087830;
+  color: white;
+  padding: 10px 10px;
+}
+
+#createNewCard:hover{
+  background-color: #124d25;
+}
+img{
+  border-radius:25px;
+}
+
 #WAT{
   overflow-x: auto;
   width: 100%;
@@ -37,14 +65,15 @@ body {
 	overflow-x:hidden;
 }
 
-hi,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6 {
+  margin:0px 0px;
 	color:#272727;
 	line-height:1.1em;
 }
 
 p {
-	color:#aaa;
-	font-size:13px;
+	color: black;
+	font-size:16px;
 }
 a {
     text-decoration:none;
@@ -778,9 +807,10 @@ ul.social_icons li  a i{
 	position: relative;	
 	margin-top:30px;
 	margin-bottom:30px;
-	background: #272727;
+	background-color: #272727;
 	text-align: center;
-	cursor: pointer;
+  cursor: pointer;
+  border-radius: 25px;
 }
 
 .gallery figure img {
