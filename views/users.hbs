@@ -44,29 +44,44 @@
             {{/each}}
                 
         </table>
-
+        {{> footer}}
+                <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+                <script src="js/jquery.min.js"></script>
+                <script src="js/jquery-migrate.min.js"></script>
+                <!-- Include all compiled plugins (below), or include individual files as needed -->
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/wow.min.js"></script>
+                <script>
+                    wow = new WOW({}).init();
+                </script>
+                
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Edit Email and Password </h4>
+                    <h4 class="modal-title">Edit Sheet Key, Email, and Password </h4>
                 </div>
                 <div class="modal-body">
                     
-                        <h4 id ="modal-title" class="modal-title">  </h4>
+                        <h2 id ="modal-title" class="modal-title">  </h4>
                         <form role="form">
-                            <div class="form-group">
+                            <div class="form-group"> <br/>
+                            <label for="newEmailAddress">Sheet Key </label>
+                            <input type="text" class="form-control" id="newSheet"> </input>
+                            <button type="submit" id= "editSheetBtn" class="btn btn-default">Enter Sheet Key </button> <br/><br/><br/>
+
                             <label for="currentEmailAddress">Current Email Address</label>
                             <input type="email" class="form-control" id="currentEmail" value="" readonly> </input> <br/>
     
                             <label for="newEmailAddress">New Email Address </label>
-                            <input type="email" class="form-control" id="newEmail"> </input> <br/>
+                            <input type="email" class="form-control" id="newEmail"> </input>
+                            <button type="submit" id= "editEmailBtn" class="btn btn-default">Edit Email</button> <br/><br/><br/>
 
                             <label for="currentPassword">Password</label>
                             <div> Current password is hidden for security purposes. </div>
-                            <button type="submit" id= "resetBtn" class="btn btn-default">Reset Password</button> <br/> <br/>
+                            <button type="submit" id= "resetBtn" class="btn btn-default">Reset Password</button> <br/>
                         </form>
                 </div>
                     <div class="modal-footer">
@@ -76,15 +91,6 @@
             </div>
         </div>
         
-        {{> footer}}
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-migrate.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script>
-            wow = new WOW({}).init();
-        </script>
+       
     </body>
 </html>
