@@ -19,24 +19,79 @@
 }
 
 #editCard{
-  border-radius: 8px;
+  border-radius: 50px;
   background-color: #087830;
   color: white;
-  padding: 10px 10px;
+  padding: 10px 30px;
+  margin-left: 135px;
+  margin-top: -50px;
+  position:absolute;
+  z-index: 1;
 }
 
 #deleteCard{
-  border-radius: 8px;
+  border-radius: 50px;
   background-color: #087830;
   color: white;
-  padding: 10px 10px;
+  padding: 10px 30px;
+  margin-top: -50px;
+  margin-left: 230px;
+  position:absolute;
+  z-index: 1;
+}
+
+#deleteYesBtn{
+  border-radius: 25px;
+  background-color: #087830;
+  color: white;
+  padding: 16px 40px;
+  font-size:16px;
+  position: relative;
+}
+
+#deleteNoBtn{
+  border-radius: 25px;
+  background-color: #087830;
+  color: white;
+  padding: 16px 40px;
+  font-size:16px;
+  position: relative;
+}
+
+#deleteFooterBtn{
+  border-radius: 25px;
+  background-color: #087830;
+  color: white;
+  font-size:12px;
+}
+
+#deleteYesBtn:hover{
+  background-color: #124d25;
+}
+
+#deleteNoBtn:hover{
+  background-color: #124d25;
+}
+
+#deleteFooerBtn{
+  background-color: #124d25;
+}
+
+#editCard:hover{
+  background-color: #124d25;
+}
+
+#deleteCard:hover{
+  background-color: #124d25;
 }
 
 #createNewCard:hover{
   background-color: #124d25;
 }
+
 img{
   border-radius:25px;
+  
 }
 
 #WAT{
