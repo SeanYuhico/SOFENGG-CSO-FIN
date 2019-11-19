@@ -14,8 +14,9 @@ const creds = require (__dirname + "/documentTracker.json");
 const doc = new GoogleSpreadsheet('1z_6sjroYPL8_TzMf6BGqWIoDzQoC8dnAIDgRjVVTNPQ');
 
 //Models
-const userDB = require(__dirname + "/models/user.js");
 const DocTrackerModel = require(__dirname + "/models/document-tracker.js");
+const balanceModel = require(__dirname + "/models/balance.js");
+const debtsModel = require(__dirname + "/models/debts.js");
 //Controllers
 const userController = require(__dirname + "/controllers/user.js");
 // const docuController = require(__dirname + "/controllers/document-tracker.js");
@@ -32,7 +33,7 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://sofengg-cso-fin.firebaseio.com"
 });
-var documents;
+let documents;
 
 //Listen
 app.listen(process.env.PORT || 3001, function(){console.log("Live at port 3001");});
@@ -112,20 +113,64 @@ app.get("/debts", async(req, res) => {
 }); 
 
 app.get("/balance", async(req, res) => {
-    console.log("Redirect to Debts");
-    documents = await DocTrackerModel.getSpreadsheetRows(req.session.organization);
-    if(documents != null){
-        req.session.data = documents;
-        res.render("balance.hbs", {
-            admin : req.session.admin,
-            org : req.session.organization,
-            Header : req.session.data
-        })
-    } else{
+    console.log("Redirect to Balance");
+
+    const promise = new Promise( (resolve, reject) => {
+        console.log("promise")
+        // let balanceKey = userController.RetrieveBalanceSheet(req, res);
+        // console.log("is " + balanceKey)
+        // resolve(balanceKey)
+        userController.RetrieveBalanceSheet(req, res).then(value => {
+            console.log("value: " +value);
+
+            if (value !== null)
+                return resolve(value);
+            return reject();
+        });
+    });
+
+    promise.then((balanceKey) => {
+        console.log("is balanceKey null? " + (balanceKey == null))
+        if (balanceKey) {
+            let val = balanceModel.setSpreadsheet(balanceKey).then(sheet => {
+                console.log(sheet);
+                if (sheet === null)
+                    return null;
+                else 
+                    return sheet;
+            })
+            console.log("val: " + val)
+            return val;
+        } return null;
+    }).then((sheet) => {
+        console.log("is sheet null? " + (sheet == null))
+        console.log(sheet);
+        if (sheet === null)
+            return null;
+        let rows = balanceModel.accessSpreadsheet(req.session.organization, sheet).then(sheetRows => {
+            if (sheetRows === null)
+                return null;
+            return sheetRows;
+        });
+        return rows;
+    }).then((rows) => {
+        console.log("wow! yay! " + (rows === null))
+        if (rows !== null) {
+            req.session.data = rows;
+            res.render("balance.hbs", {
+                admin : req.session.admin,
+                org : req.session.organization,
+                Header : req.session.data
+            });
+        } else {
+            return null;
+        }
+    })
+    .catch ((err)=>{
         res.render("404.hbs", {
             org : req.session.organization
         })
-    }
+    });
 }); 
 
 app.post("/login", userController.authenticate);
