@@ -130,6 +130,12 @@ app.get("/balance", async(req, res) => {
 
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);
+
+app.post("/editSheet", (req,res)=>{
+    console.log("/editSheet");
+    userController.updateBalanceDebtsSheet(req, res);
+})
+
 app.use("*", function(req, res){
     res.render("404.hbs", {
         org : req.session.organization

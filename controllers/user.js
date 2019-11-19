@@ -41,7 +41,7 @@ function logout(req, res){
     req.session.destroy();
     res.send("OK")
 }
-
+ 
 function RetrieveAll(req, res){
     let user = null;
     if (req.session.organization){
@@ -83,19 +83,25 @@ function Create(req, res){
     })
 }
 
-function updateDebtsId (req, res) {
-
-
-}
-
-function updateBalanceId (req, res) {
-
-
+function updateBalanceDebtsSheet (req, res) {
+    console.log("updateBalanceDebtsSheet")
+    let org = req.body.org;
+    let sheetKey = req.body.sheetKey;
+    userDB.UpdateBalanceDebtsSheet(org, sheetKey, (err) => {
+        if (err) {
+            console.log("Update Failure");
+            res.send("FAIL");
+        } else {
+            console.log("Update Success");
+            res.send("SUCCESS");
+        }
+    })
 }
 
 module.exports = {
     authenticate,
     logout,
     RetrieveAll, 
+    updateBalanceDebtsSheet,
     Create
 }
