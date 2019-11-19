@@ -93,6 +93,14 @@ function UpdateBalanceSheet(username, link, callback) {
     });
 }
 
+function UpdateBalanceDebtsSheet(username, link, callback) {
+    console.log("UpdateBalanceDebtsSheet() - model")
+    let ref = database.ref('/users/' + username);
+    ref.update({balanceKey: link, debtsKey: link}, err => {
+        callback(err);
+    });
+}
+
 function Delete(username, callback){
     database.ref('users/' + username).remove((err) => {
         callback(ref);
@@ -104,6 +112,9 @@ module.exports = {
     RetrieveOne,
     RetrieveAll,
     Update,
+    UpdateDebtsSheet,
+    UpdateBalanceSheet,
+    UpdateBalanceDebtsSheet,
     Delete,
     resetSheets
 }
