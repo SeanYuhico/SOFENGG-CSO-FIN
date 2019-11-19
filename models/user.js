@@ -2,6 +2,7 @@ const fb = require("./firebase.js");
 const crypto = require("crypto-js");
 
 const database = fb.database;
+const userRef = database.ref('/users/');
 
 var connectedRef = fb.database.ref(".info/connected");
 connectedRef.on("value", function(snap) {
@@ -48,6 +49,23 @@ function RetrieveAll(callback){
     });
 }
 
+function resetSheets(){
+    userRef.once("value", function(snapshot) {
+        snapshot.forEach(function(child) {
+            console.log(child.key+": "+child.val());
+        })
+    })
+
+    userRef.once("value", function(snapshot) {
+        snapshot.forEach(function(child) {
+          child.ref.update({
+            debtsKey: '0',
+            balanceKey: '0'
+          });
+        });
+    });
+}
+
 function Update(username, newData, callback){
     var updates = {};
     console.log(newData.password + "");
@@ -72,5 +90,6 @@ module.exports = {
     RetrieveOne,
     RetrieveAll,
     Update,
-    Delete
+    Delete,
+    resetSheets
 }
