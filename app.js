@@ -97,19 +97,60 @@ app.get("/documentTracker", async(req, res) => {
 
 app.get("/debts", async(req, res) => {
     console.log("Redirect to Debts");
-    documents = await DocTrackerModel.getSpreadsheetRows(req.session.organization);
-    if(documents != null){
-        req.session.data = documents;
-        res.render("debts.hbs", {
-            admin : req.session.admin,
-            org : req.session.organization,
-            Header : req.session.data
-        })
-    } else{
+
+    const promise = new Promise( (resolve, reject) => {
+        console.log("promise")
+        userController.RetrieveDebtsSheet(req, res).then(value => {
+            console.log("value: " +value);
+
+            if (value !== null)
+                return resolve(value);
+            return reject();
+        });
+    });
+
+    promise.then((debtsKey) => {
+        console.log("is debtsKey null? " + (debtsKey == null))
+        if (debtsKey) {
+            let val = debtsModel.setSpreadsheet(debtsKey).then(sheet => {
+                console.log(sheet);
+                if (sheet === null)
+                    return null;
+                else 
+                    return sheet;
+            })
+            console.log("val: " + val)
+            return val;
+        } return null;
+    }).then((sheet) => {
+        console.log("is sheet null? " + (sheet == null))
+        console.log(sheet);
+        if (sheet === null)
+            return null;
+        let rows = debtsModel.accessSpreadsheet(req.session.organization, sheet).then(sheetRows => {
+            if (sheetRows === null)
+                return null;
+            return sheetRows;
+        });
+        return rows;
+    }).then((rows) => {
+        console.log("wow! yay! " + (rows === null))
+        if (rows !== null) {
+            req.session.data = rows;
+            res.render("debts.hbs", {
+                admin : req.session.admin,
+                org : req.session.organization,
+                Header : req.session.data
+            });
+        } else {
+            return null;
+        }
+    })
+    .catch ((err)=>{
         res.render("404.hbs", {
             org : req.session.organization
         })
-    }
+    });
 }); 
 
 app.get("/balance", async(req, res) => {
@@ -117,9 +158,6 @@ app.get("/balance", async(req, res) => {
 
     const promise = new Promise( (resolve, reject) => {
         console.log("promise")
-        // let balanceKey = userController.RetrieveBalanceSheet(req, res);
-        // console.log("is " + balanceKey)
-        // resolve(balanceKey)
         userController.RetrieveBalanceSheet(req, res).then(value => {
             console.log("value: " +value);
 

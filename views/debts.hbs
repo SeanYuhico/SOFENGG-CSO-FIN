@@ -28,18 +28,35 @@
             {{> nav}}
         {{/if}}
         <div id="WAT">
-            <h1 id="documentLabel"> DEBTS </h1>
+            <h1 id="documentLabel"> YOUR DEBTS </h1>
             <h2 id="orgLabel"> {{org}} </h2>
-            <table id="myTable" style="color: black; margin-top: 20px; border: 1px solid black">
-                <thead>
-                    <tr>
-                        <th>Establishment</th>
-                        <th>Suppliers/Particulars</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
+        <div id="WAT">
+            <table id="myTable" style="color: black; border: 1px solid black; width: 100%">
+            <thead>
+            <tr>
+                <th>Date Received</th>
+                <th>Activity Title</th>
+                <th>Activity Date</th>
+                <th>Amount</th>
+                <th>Payable To</th>
+                <th>Settled?</th>
+            </tr>
+            </thead>
             <tbody>
-            </tbody>
+            {{#each Header}}
+                <tr>
+                    <td> {{this.datereceived}}</td>
+                    <td> {{this.titleofactivity}}</td>
+                    <td> {{this.activitydate}}</td>
+                    <td> {{this.amount}}</td>
+                    <td> {{this.payableto}}</td>
+                    <td> {{this.settled}}</td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="10" style="text-align: center;">No document available in table</td>
+                </tr>
+            {{/each}}
             </table>
         </div>
         
@@ -51,18 +68,39 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
-        <script src="../js/debts.js"></script>
-        <script src="../js/global.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
+        <script src="../js/global.js"></script>    
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/wow.min.js"></script>
+        <script src="../js/debts.js"></script>
+
         <script>
             wow = new WOW({}).init();
             
             $(document).ready( function () {
-                $('#myTable').DataTable();
-            } );
+                table = $('#myTable').DataTable({
+                    orderCellsTop: true,
+                    fixedHeader: true,
+                    scrollX:        true,
+                    scrollY:        300,
+                    scrollCollapse: true,
+                    responsive:     true
+                });
+                // Filter event handler
+                $(table.table().container()).on( 'keyup', 'thead input', function () {
+                    console.log("hewoo");
+                    table
+                        .column( $(this).data('index') )
+                        .search( this.value )
+                        .draw();
+                } );
+            });
+
+            
+
         </script>
     </body>
 
