@@ -76,6 +76,43 @@
   background-color: #124d25;
 }
 
+
+#createTitleCard{
+  border-radius: 25px;
+  background-color: #087830;
+  color: white;
+  font-size:14px;
+  position: relative;
+}
+
+#createTitleCard:hover{
+  background-color: #124d25;
+}
+
+#createDescriptionCard{
+  border-radius: 25px;
+  background-color: #087830;
+  color: white;
+  font-size:14px;
+  position: relative;
+}
+
+#createDescriptionCard:hover{
+  background-color: #124d25;
+}
+
+#createLinkCard{
+  border-radius: 25px;
+  background-color: #087830;
+  color: white;
+  font-size:14px;
+  position: relative;
+}
+
+#createLinkCard:hover{
+  background-color: #124d25;
+}
+
 #deleteYesBtn{
   border-radius: 25px;
   background-color: #087830;
