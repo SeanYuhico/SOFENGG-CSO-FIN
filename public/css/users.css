@@ -28,11 +28,33 @@
     color: white;
 }
 
-#orgsEdit{
-    margin-left: 10px;
+#addUser{
+    margin-top: 10px;
+    margin-left: 7px;
     border-radius: 8px;
     background-color: #087830;
+    border-color: green;
+}
+
+#addUser:hover{
+    background-color: #086000;
+    border-color: green;
+}
+
+#orgsEdit{
+    margin-left: 10px;
+    border-radius: 7px;
+    background-color: #087830;
     color: white;
+    border-color: green;
+}
+
+#orgsEdit:hover{
+    margin-left: 10px;
+    border-radius: 7px;
+    background-color: #086000;
+    color: white;
+    border-color: green;
 }
 
 .btn{
