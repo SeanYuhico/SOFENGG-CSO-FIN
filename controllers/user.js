@@ -60,14 +60,28 @@ function RetrieveBalanceSheet (req, res) {
                 return reject("null");
             }
         });
-      })
+    })
 }
 
 function RetrieveDebtsSheet (req, res) {
-    RetrieveOne(req.session.org, (user) => {
-        console.log("Debts key: " + user.debtsKey);
-        res.send(user.debtsKey);
-    });
+    console.log("org" + req.session.organization)
+
+    return new Promise((resolve, reject) => {
+        userDB.RetrieveOne(req.session.organization, (user) => {
+            console.log("Debts key: " + user.debtsKey);
+            let debtsKey = user.debtsKey;
+            //res.send(balanceKey);
+            
+            console.log(user);
+    
+            if (debtsKey !== null) {
+                console.log("debtsKey: " + debtsKey);
+                return resolve(debtsKey);
+            } else {
+                return reject("null");
+            }
+        });
+    })
 }
  
 function RetrieveAll(req, res){
@@ -131,6 +145,7 @@ module.exports = {
     logout,
     RetrieveAll, 
     RetrieveBalanceSheet,
+    RetrieveDebtsSheet,
     updateBalanceDebtsSheet,
     Create
 }
