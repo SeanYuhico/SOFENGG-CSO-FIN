@@ -8,6 +8,7 @@ function authenticate(req, res){
         if(organization && organization.email === em && organization.password === pw){
             req.session.organization = org;
             req.session.admin = organization.admin;
+            req.session.email = em;
             // console.log("Session Values: " + req.session.organization + "Admin: " + req.session.admin);
             res.send("OK");
         } else if(organization && organization.email === em && pw != "" && organization.password == ""){
@@ -93,6 +94,7 @@ function RetrieveAll(req, res){
         if(user.admin == 1 && req.session.organization != ""){
             userDB.RetrieveAll((users) => {
                 res.render("users.hbs", {
+                    org : req.session.organization,
                     users: users,
                     user: user
                 });
@@ -100,6 +102,7 @@ function RetrieveAll(req, res){
         }
     } else {
         res.render("404.hbs", {
+            org : req.session.organization,
             admin : req.session.admin
         });
     }

@@ -67,7 +67,8 @@ app.get("/home", (req, res)=>{
     if(authenticated === true){
         res.render("home.hbs", {
             admin : req.session.admin,
-            org : req.session.organization
+            org : req.session.organization,
+            orgEmail: req.session.email
         })
     }else{
         res.render("404.hbs", {
