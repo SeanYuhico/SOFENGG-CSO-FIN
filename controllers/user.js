@@ -108,19 +108,24 @@ function RetrieveAll(req, res){
 function Create(req, res){
     //create user
     let em = req.body.em;
+    let org = req.body.org;
+    let pw = req.body.pw;
     let random = (Math.floor(Math.random() * 90000) + 10000) + "";
+    if (req.body.pw === null)
+        pw = random;
     let user = {
-        password:random,
-        email:em
+        org: org,
+        password: pw,
+        email: em
     }
     userDB.Create(user, (err) => {
         if(err){
             console.log(err);
             console.log("Fail Update");
-            res.send("FAIL");
+            res.send({"message":"FAIL"});
         } else{
             console.log("Update SUCCESS");
-            res.send("SUCCESS");
+            res.send({"message":"SUCCESS", "org": org, "pw": pw, "email": em});
         }
     })
 }
