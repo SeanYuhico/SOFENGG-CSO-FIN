@@ -180,6 +180,8 @@ module.exports = {
     RetrieveAll, 
     RetrieveBalanceSheet,
     RetrieveDebtsSheet,
+    editPassword,
+    resetPassword,
     updateBalanceDebtsSheet,
     Create
 }
