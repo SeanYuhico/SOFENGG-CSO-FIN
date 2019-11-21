@@ -14,13 +14,12 @@ connectedRef.on("value", function(snap) {
 });
 
 function Create(user, callback){
-    let id = database.ref('users/').push().key;
     let hash = crypto.AES.encrypt(user.password, user.email).toString();
 
-    database.ref('users/' + user.email).set({
+    database.ref('users/' + user.org).set({
         "email": user.email,
         "password": hash,
-        "admin": user.admin
+        "admin": 0
     }, (err) => {
         callback(err);
     });
