@@ -156,9 +156,10 @@ function editEmail(req, res) {
             console.log(err);
             console.log("Fail Update");
             //res.send("FAIL");
+            res.send({message: "FAIL"});
         } else{
             console.log("Update SUCCESS");
-            //res.send("SUCCESS");
+            res.send({message: "SUCCESS", "email": email});
         }
     });
 }

@@ -105,4 +105,42 @@ $(document).ready(() => {
         });
     });
     
+    
+    $("#editEmailBtn").click(function(e){
+        e.preventDefault();
+        console.log("#editEmailBtn");
+        let email = $("#newEmailAddress").val();
+        let valid = true;
+
+        // insert code for validation
+        if (valid === true) {
+            $.ajax({
+                url: "editEm",
+                method: "POST",
+                data:{
+                    org: key,
+                    em: email
+                }, 
+                success: function(result){
+                    console.log("yezz");
+                    
+                    console.log(result);
+                    if (result.message === "SUCCESS") {
+                        console.log("woo");
+                        $("#responseBody").text("Your email is now " + email + "!");
+                    } else {
+                        console.log("boo");
+                        $("#responseBody").text("Failed to edit email.");
+                    }
+
+                    toggle = false;
+                    // open view where new password will show
+                    // location.reload(true);
+                }
+            });
+        } else {
+            // insert failed validation response
+        }
+    });
+    
 })
