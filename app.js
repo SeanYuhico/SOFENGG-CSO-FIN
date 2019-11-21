@@ -217,6 +217,16 @@ app.post("/logout", userController.logout);
 app.post("/editSheet", (req,res)=>{
     console.log("/editSheet");
     userController.updateBalanceDebtsSheet(req, res);
+});
+
+app.post("/resetPw", (req,res)=>{
+    console.log("/resetPw");
+    userController.resetPassword(req, res);
+})
+
+app.post("/editPw", (req,res)=>{
+    console.log("/editPw");
+    userController.editPassword(req, res);
 })
 
 app.use("*", function(req, res){
