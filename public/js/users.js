@@ -45,5 +45,25 @@ $(document).ready(() => {
             console.log("empty?")
         }
     });
+
+    $("#resetBtn").click(function(e){
+        e.preventDefault();
+        console.log("#resetBtn");
+        let email = $("#currentEmail").val();
+        
+        $.ajax({
+            url: "resetPw",
+            method: "POST",
+            data:{
+                org: key,
+                em: email
+            }, 
+            success: function(result){
+                console.log("yezz");
+                // open view where new password will show
+                // location.reload(true);
+            }
+        });
+    });
     
 })
