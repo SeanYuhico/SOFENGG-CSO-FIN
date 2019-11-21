@@ -147,6 +147,22 @@ function resetPassword(req, res) {
     });
 }
 
+function editEmail(req, res) {
+    let org = req.body.org;
+    let email = req.body.em;
+
+    userDB.UpdateEmail(org, email, (err) => {
+        if(err){
+            console.log(err);
+            console.log("Fail Update");
+            //res.send("FAIL");
+        } else{
+            console.log("Update SUCCESS");
+            //res.send("SUCCESS");
+        }
+    });
+}
+
 function editPassword(req, res) {
     let org = req.body.org;
     let email = req.body.em;
@@ -185,6 +201,7 @@ module.exports = {
     RetrieveAll, 
     RetrieveBalanceSheet,
     RetrieveDebtsSheet,
+    editEmail,
     editPassword,
     resetPassword,
     updateBalanceDebtsSheet,
