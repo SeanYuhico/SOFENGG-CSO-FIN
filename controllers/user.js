@@ -134,10 +134,10 @@ function resetPassword(req, res) {
         if(err){
             console.log(err);
             console.log("Fail Update");
-            //res.send("FAIL");
+            res.send({message: "FAIL"});
         } else{
             console.log("Update SUCCESS");
-            //res.send("SUCCESS");
+            res.send({message: "SUCCESS", password: random});
         }
     });
 }
