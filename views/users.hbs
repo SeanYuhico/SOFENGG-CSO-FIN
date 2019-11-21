@@ -42,7 +42,8 @@
                     <tr data-id={{@key}}>
                         <td class="td-key">{{@key}}</td>
                         <td class="td-email">{{email}} </td>
-                        <td><button id="orgsEdit" class="orgsEdit" type="button" data-toggle="modal" data-target="#myModal">Edit</button></td>
+                        <td><button id="orgsEdit" class="orgsEdit" type="button" data-toggle="modal" data-target="#myModal">Edit</button>
+                        <button id="orgsDelete" class="orgsDelete" type="button" data-toggle="modal" data-target="#deleteModal">Delete</button></td>
                     </tr>
             {{/each}}
                 
@@ -76,7 +77,27 @@
                 </div>
                 </div>
             </div>
-        </div>      
+        </div>
+
+        <!-- Delete User Modal -->
+        <div class="modal fade" id="deleteModal" role="dialog">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Confirmation </h4>
+                </div>
+                <div class="modal-body modal-center">
+                    <label>Are you sure you wish to delete this account?</label>
+                     <br/><br/>
+                    <button type="submit" id= "btndeleteUser" class="btn btn-default">Yes</button>
+                    <button type="button" class="btn button btn-default" data-dismiss="modal">Cancel</button>
+                    <br/>
+                    
+                </div>
+                </div>
+            </div>
+        </div>  
 
         <!-- Edit Modal -->
         <div class="modal fade myModal" id="myModal" role="dialog">
