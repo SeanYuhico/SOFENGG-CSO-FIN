@@ -121,7 +121,7 @@ function UpdateEmail(username, email, callback) {
 
 function Delete(username, callback){
     database.ref('users/' + username).remove((err) => {
-        callback(ref);
+        callback(err);
     });
 }
 

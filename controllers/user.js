@@ -130,6 +130,20 @@ function Create(req, res){
     })
 }
 
+function Delete (req, res) {
+    let org = req.body.org;
+    userDB.Delete(org, (err) => {
+        if(err){
+            console.log(err);
+            console.log("Delete FAILURE");
+            res.send({"message":"FAIL"});
+        } else{
+            console.log("Delete SUCCESS");
+            res.send({"message":"SUCCESS", "org": org});
+        }
+    })
+}
+
 function resetPassword(req, res) {
     let org = req.body.org;
     let email = req.body.em;
@@ -206,5 +220,6 @@ module.exports = {
     editPassword,
     resetPassword,
     updateBalanceDebtsSheet,
-    Create
+    Create,
+    Delete
 }
