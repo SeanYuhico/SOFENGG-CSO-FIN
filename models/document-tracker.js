@@ -1,7 +1,7 @@
 const GoogleSpreadsheet = require('google-spreadsheet');
 const {promisify} = require('util');
 const creds = require ("../documentTracker.json");
-const doc = new GoogleSpreadsheet('1z_6sjroYPL8_TzMf6BGqWIoDzQoC8dnAIDgRjVVTNPQ');
+const doc = new GoogleSpreadsheet('1WCw_SfCdGmOWD6UJr9spJ7F23hnddHZB07GgU4UWjeA');
 
 exports.getSpreadsheetRows = async function accessSpreadsheet(orgName) {
     await promisify(doc.useServiceAccountAuth)(creds);
