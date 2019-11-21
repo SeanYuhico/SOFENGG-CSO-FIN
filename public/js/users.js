@@ -46,6 +46,34 @@ $(document).ready(() => {
         }
     });
 
+    $("#btncreateUser").click(function (e) {
+        e.preventDefault();
+        let org = $("#orgName").val();
+        let email = $("#orgEmail").val();
+        let password = $("#orgPassword").val();
+
+        $.ajax({
+            url: "createUser",
+            method: "POST",
+            data: {
+                org: org,
+                em: email,
+                pw: password
+            },
+            success: function(result) {
+                console.log(result)
+                if (result.message === "SUCCESS") {
+                    $("#responseBody").text("User created successfully.");
+                } else {
+                    $("#responseBody").text("Failed to create user.");
+                }
+
+            }
+        });
+        
+
+    });
+
     $("#resetBtn").click(function(e){
         e.preventDefault();
         console.log("#resetBtn");
@@ -63,9 +91,11 @@ $(document).ready(() => {
                 
                 console.log(result);
                 if (result.message === "SUCCESS") {
-                    $("#responseModal div .modal-body").textContent == "The new password for " + key + "is " + result.password + ".";
+                    console.log("woo");
+                    $("#responseBody").text("The new password for " + key + " is " + result.password + ".");
                 } else {
-                    $("#responseModal div .modal-body").textContent == "Password failed to reset.";
+                    console.log("boo");
+                    $("#responseBody").text("Password failed to reset.");
                 }
 
                 toggle = false;
