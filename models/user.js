@@ -19,7 +19,9 @@ function Create(user, callback){
     database.ref('users/' + user.org).set({
         "email": user.email,
         "password": hash,
-        "admin": 0
+        "admin": 0,
+        "balanceKey": "0",
+        "debtsKey": "0"
     }, (err) => {
         callback(err);
     });
@@ -109,6 +111,14 @@ function UpdateBalanceDebtsSheet(username, link, callback) {
     });
 }
 
+function UpdateEmail(username, email, callback) {
+    console.log("UpdateEmail() - model")
+    let ref = database.ref('/users/' + username);
+    ref.update({email: email}, err => {
+        callback(err);
+    });
+}
+
 function Delete(username, callback){
     database.ref('users/' + username).remove((err) => {
         callback(ref);
@@ -120,6 +130,7 @@ module.exports = {
     RetrieveOne,
     RetrieveAll,
     Update,
+    UpdateEmail,
     UpdatePassword,
     UpdateDebtsSheet,
     UpdateBalanceSheet,
