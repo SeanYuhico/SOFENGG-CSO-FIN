@@ -6,7 +6,7 @@ $(document).ready(() => {
     $("#help-nav-link").removeAttr('class', 'active')
     $("#users-nav-link").attr('class', 'active')
 
-    let key, userEl;
+    let key, userEl, toggle = false;
     
 
     $(".orgsEdit").click(function(){
@@ -60,6 +60,15 @@ $(document).ready(() => {
             }, 
             success: function(result){
                 console.log("yezz");
+                
+                console.log(result);
+                if (result.message === "SUCCESS") {
+                    $("#responseModal div .modal-body").textContent == "The new password for " + key + "is " + result.password + ".";
+                } else {
+                    $("#responseModal div .modal-body").textContent == "Password failed to reset.";
+                }
+
+                toggle = false;
                 // open view where new password will show
                 // location.reload(true);
             }
