@@ -44,6 +44,22 @@
     border-color: #086000;
 }
 
+#orgsDelete{
+    margin-left: 10px;
+    border-radius: 15px;
+    background-color: #087830;
+    color: white;
+    border-color: green;
+    padding: 2px 10px;
+}
+
+#orgsDelete:hover{
+    margin-left: 10px;
+    background-color: #086000;
+    color: white;
+    border-color: green;
+}
+
 #orgsEdit{
     margin-left: 10px;
     border-radius: 15px;
