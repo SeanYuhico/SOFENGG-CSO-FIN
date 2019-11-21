@@ -227,12 +227,17 @@ app.post("/editSheet", (req,res)=>{
 app.post("/resetPw", (req,res)=>{
     console.log("/resetPw");
     userController.resetPassword(req, res);
-})
+});
+
+app.post("/editEm", (req,res)=>{
+    console.log("/editEm");
+    userController.editEmail(req, res);
+});
 
 app.post("/editPw", (req,res)=>{
     console.log("/editPw");
     userController.editPassword(req, res);
-})
+});
 
 app.use("*", function(req, res){
     res.render("404.hbs", {
