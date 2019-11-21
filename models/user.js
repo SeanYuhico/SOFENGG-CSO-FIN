@@ -26,7 +26,7 @@ function Create(user, callback){
     });
 }
 
-function updatePassword (org, email, password, callback) {
+function UpdatePassword (org, email, password, callback) {
     let ref = database.ref('/users/' + org);
     let hash = crypto.AES.encrypt(password, email).toString();
 
@@ -121,6 +121,7 @@ module.exports = {
     RetrieveOne,
     RetrieveAll,
     Update,
+    UpdatePassword,
     UpdateDebtsSheet,
     UpdateBalanceSheet,
     UpdateBalanceDebtsSheet,

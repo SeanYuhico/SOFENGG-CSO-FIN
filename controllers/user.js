@@ -108,8 +108,8 @@ function RetrieveAll(req, res){
 function Create(req, res){
     //create user
     let em = req.body.em;
-    let pw = req.body.pw;
-    var user = {
+    let random = (Math.floor(Math.random() * 90000) + 10000) + "";
+    let user = {
         password:random,
         email:em
     }
@@ -123,6 +123,40 @@ function Create(req, res){
             res.send("SUCCESS");
         }
     })
+}
+
+function resetPassword(req, res) {
+    let org = req.body.org;
+    let email = req.body.em;
+    let random = (Math.floor(Math.random() * 90000) + 10000) + "";
+
+    userDB.UpdatePassword(org, email, random, (err) => {
+        if(err){
+            console.log(err);
+            console.log("Fail Update");
+            //res.send("FAIL");
+        } else{
+            console.log("Update SUCCESS");
+            //res.send("SUCCESS");
+        }
+    });
+}
+
+function editPassword(req, res) {
+    let org = req.body.org;
+    let email = req.body.em;
+    let pw = req.body.pw;
+
+    userDB.UpdatePassword(org, email, pw, (err) => {
+        if(err){
+            console.log(err);
+            console.log("Fail Update");
+            //res.send("FAIL");
+        } else{
+            console.log("Update SUCCESS");
+            //res.send("SUCCESS");
+        }
+    });
 }
 
 function updateBalanceDebtsSheet (req, res) {
