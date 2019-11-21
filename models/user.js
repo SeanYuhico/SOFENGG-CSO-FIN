@@ -26,6 +26,15 @@ function Create(user, callback){
     });
 }
 
+function updatePassword (org, email, password, callback) {
+    let ref = database.ref('/users/' + org);
+    let hash = crypto.AES.encrypt(password, email).toString();
+
+    ref.update({password: hash}, err => {
+        callback(err);
+    });
+}
+
 function RetrieveOne(username, callback){
     database.ref('users/' + username).once('value').then(function(snapshot){
         let user = snapshot.val();
