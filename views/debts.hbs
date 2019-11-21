@@ -88,6 +88,7 @@
                     scrollX:        true,
                     scrollY:        300,
                     scrollCollapse: true,
+                    autoFill:       false,
                     responsive:     true
                 });
                 // Filter event handler
@@ -98,6 +99,7 @@
                         .search( this.value )
                         .draw();
                 } );
+                $("label input").attr("autocomplete", "off");
             });
 
             

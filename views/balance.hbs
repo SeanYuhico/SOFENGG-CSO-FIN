@@ -81,11 +81,7 @@
                     scrollY:        300,
                     scrollCollapse: true,
                     responsive:     true,
-                    
-                    fixedColumns:   {
-                        leftColumns: 0,
-                        rightColumns: 2
-                    }
+                    autoFill:       false
                 });
                 // Filter event handler
                 $(table.table().container()).on( 'keyup', 'thead input', function () {
@@ -95,6 +91,7 @@
                         .search( this.value )
                         .draw();
                 } );
+                $("label input").attr("autocomplete", "off");
             });
 
             

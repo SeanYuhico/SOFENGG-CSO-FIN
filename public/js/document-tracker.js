@@ -17,13 +17,6 @@ $(document).ready(() => {
             $(this).addClass('fixedCol');
         }
 
-
-        // $('.filter, input', this).on('keyup change', function() {
-        //     //clear global search values
-        //     //table.search('');
-        //     console.log('wow');
-        //     table.column($(this).data('index')).search(this.value).draw();
-        // });
     });
 });
 
