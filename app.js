@@ -239,6 +239,11 @@ app.post("/editPw", (req,res)=>{
     userController.editPassword(req, res);
 });
 
+app.delete("/deleteUser", (req, res) => {
+    console.log("/deleteUser");
+    userController.Delete(req, res);
+})
+
 app.use("*", function(req, res){
     res.render("404.hbs", {
         org : req.session.organization
