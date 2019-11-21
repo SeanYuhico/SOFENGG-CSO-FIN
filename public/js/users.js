@@ -9,7 +9,7 @@ $(document).ready(() => {
     let key, userEl, toggle = false;
     
 
-    $(".orgsEdit,#btndeleteUser").click(function(){
+    $(".orgsEdit").click(function(){
         key = $(this).parent().parent().data('id');
         //console.log("key: " + key);
         userEl = document.querySelectorAll('[data-id="' + key + '"]')[0];
@@ -20,6 +20,10 @@ $(document).ready(() => {
         document.getElementById("modal-title").textContent = key;
         document.getElementById("currentEmail").value = emailEl.textContent;
     });
+
+    $(".orgsDelete").click(function() {
+        key = $(this).parent().parent().data('id');
+    })
 
     $("#editSheetBtn").click(function(e){
         e.preventDefault();
@@ -146,6 +150,7 @@ $(document).ready(() => {
 
     $("#btndeleteUser").click(function(e) {
         e.preventDefault();
+        console.log("DELETE " + key);
         $.ajax({
             url: "deleteUser",
             method: "DELETE",
@@ -154,12 +159,13 @@ $(document).ready(() => {
             }, 
             success: function(result){
                 console.log("here?");
+                console.log("result: " + result);
+                console.log(result);
                 if (result.message === "SUCCESS") {
-                    console.log("woo");
-                    $("#responseBody").text(key +  " is gone from the database.");
+                    console.log(result.org)
+                    location.reload(true);
                 } else {
                     console.log("boo");
-                    $("#responseBody").text("Failed to delete user.");
                 }
             }
         });

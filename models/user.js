@@ -119,9 +119,10 @@ function UpdateEmail(username, email, callback) {
     });
 }
 
-function Delete(username, callback){
-    database.ref('users/' + username).remove((err) => {
-        callback(err);
+function Delete(key, callback){
+    let ref = database.ref('/users/' + key);
+    ref.remove((err) => {
+        callback(err)
     });
 }
 
