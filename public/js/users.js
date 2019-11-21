@@ -9,7 +9,7 @@ $(document).ready(() => {
     let key, userEl, toggle = false;
     
 
-    $(".orgsEdit").click(function(){
+    $(".orgsEdit,#btndeleteUser").click(function(){
         key = $(this).parent().parent().data('id');
         //console.log("key: " + key);
         userEl = document.querySelectorAll('[data-id="' + key + '"]')[0];
@@ -142,5 +142,27 @@ $(document).ready(() => {
             // insert failed validation response
         }
     });
+
+
+    $("#btndeleteUser").click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "deleteUser",
+            method: "DELETE",
+            data:{
+                org: key
+            }, 
+            success: function(result){
+                console.log("here?");
+                if (result.message === "SUCCESS") {
+                    console.log("woo");
+                    $("#responseBody").text(key +  " is gone from the database.");
+                } else {
+                    console.log("boo");
+                    $("#responseBody").text("Failed to delete user.");
+                }
+            }
+        });
+    })
     
 })
