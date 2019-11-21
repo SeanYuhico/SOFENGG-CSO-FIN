@@ -214,6 +214,11 @@ app.get("/balance", async(req, res) => {
 app.post("/login", userController.authenticate);
 app.post("/logout", userController.logout);
 
+app.post("/createUser", (req, res) => {
+    console.log("/createUser");
+    userController.Create(req, res);
+});
+
 app.post("/editSheet", (req,res)=>{
     console.log("/editSheet");
     userController.updateBalanceDebtsSheet(req, res);
