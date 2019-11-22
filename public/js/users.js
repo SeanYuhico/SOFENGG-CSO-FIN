@@ -68,6 +68,7 @@ $(document).ready(() => {
                 console.log(result)
                 if (result.message === "SUCCESS") {
                     $("#responseBody").text("User created successfully.");
+                    setTimeout(location.reload.bind(location), 1100);
                 } else {
                     $("#responseBody").text("Failed to create user.");
                 }
@@ -132,6 +133,7 @@ $(document).ready(() => {
                     if (result.message === "SUCCESS") {
                         console.log("woo");
                         $("#responseBody").text("Your email is now " + email + "!");
+                        location.reload(true);
                     } else {
                         console.log("boo");
                         $("#responseBody").text("Failed to edit email.");

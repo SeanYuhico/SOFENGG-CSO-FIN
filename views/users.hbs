@@ -50,6 +50,8 @@
         </table>
         {{> footer}}
         {{> profile}}
+
+        
                 
         <!-- Add User Modal -->
         <div class="modal fade" id="addModal" role="dialog">
@@ -79,6 +81,26 @@
             </div>
         </div>
 
+        
+
+        <!-- Response Modal -->
+        <div class="modal fade responseModal" id="responseModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Success!</h4>
+                </div>
+                <div id="responseBody" class="modal-body">
+                    
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn button btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Delete User Modal -->
         <div class="modal fade" id="deleteModal" role="dialog">
             <div class="modal-dialog">
@@ -97,7 +119,7 @@
                 </div>
                 </div>
             </div>
-        </div>  
+        </div>
 
         <!-- Edit Modal -->
         <div class="modal fade myModal" id="myModal" role="dialog">
@@ -125,7 +147,7 @@
 
                             <label for="currentPassword">Password</label>
                             <div> Current password is hidden for security purposes. </div>
-                            <button id= "resetBtn" class="btn btn-default selector" data-toggle="modal" data-target="#responseModal">Reset Password</button> <br/>
+                            <button id= "resetBtn" class="btn btn-default selector" data-toggle="modal" data-target="#responseModal" data-dismiss="modal">Reset Password</button> <br/>
                         </form>
                 </div>
                     <div class="modal-footer">
@@ -133,26 +155,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-       
-        <!-- Response Modal -->
-        <div class="modal fade responseModal" id="responseModal" role="dialog">
-            <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Success!</h4>
-                </div>
-                <div id="responseBody" class="modal-body">
-                    
-                </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn button btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
- 
+        </div>  
+
     </body>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
