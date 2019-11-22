@@ -197,7 +197,7 @@
   background-color: #124d25;
 }
 
-#createLinkCard{
+#createCard{
   border-radius: 25px;
   background-color: #087830;
   color: white;
@@ -205,7 +205,7 @@
   position: relative;
 }
 
-#createLinkCard:hover{
+#createCard:hover{
   background-color: #124d25;
 }
 
