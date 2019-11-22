@@ -56,6 +56,7 @@ app.get("/", (req, res)=>{
         res.render("login.hbs", {});
     }
 });
+
 app.get("/home", (req, res)=>{
     var authenticated = false;
     console.log("Session: " + req.session.organization);
@@ -77,6 +78,29 @@ app.get("/home", (req, res)=>{
     }
     
 })
+
+app.get("/help", (req, res)=>{
+    var authenticated = false;
+    console.log("Session: " + req.session.organization);
+ 
+    if(req.session.organization){
+        authenticated = true;
+    }
+ 
+    if(authenticated === true){
+        res.render("help.hbs", {
+            admin : req.session.admin,
+            org : req.session.organization,
+            orgEmail: req.session.email
+        })
+    }else{
+        res.render("404.hbs", {
+            org : req.session.organization
+        })
+    }
+    
+})
+
 app.get("/users", userController.RetrieveAll);
 
 app.get("/documentTracker", async(req, res) => {

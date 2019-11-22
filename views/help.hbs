@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CSO FINANCE HELP PAGE</title>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style2.css" rel="stylesheet" />
+
+  <!-- Libraries CSS Files -->
+  <link href="../ionicons/css/ionicons.min.css" rel="stylesheet">
+
+  <script src="../js/help.js"></script>
+  <script src="../js/global.js"></script>
+  
+
+<body>
+  {{#if org}}
+  {{#if admin}}
+    {{> adminNav}}
+  {{else}}
+    {{> nav}}
+  {{/if}}
+{{else}}
+  {{> nav}}
+{{/if}}
+
+    <section id="faq">
+      <div class="container">
+
+        <div class="section-header">
+          <h3 class="section-title">Frequently Asked Questions</h3>
+          <span class="section-divider"></span>
+          <p class="section-description">This section contains all the necessary information regarding the CSO website; it also contains questions that might be usefel in your experience.</p>
+        </div>
+
+        <ul id="faq-list" class="wow fadeInUp">
+          <li>
+            <a data-toggle="collapse" class="collapsed" href="#faq1">Where do I find the logging form for the submission of my documents? <i class="ion-android-remove"></i></a>
+            <div id="faq1" class="collapse" data-parent="#faq-list">
+              <p>
+                All relevant links are located in the home page of this website. Just simply hover over an item and choose one of the options that best fits your needs.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">Where can I see the status of my documents? <i class="ion-android-remove"></i></a>
+            <div id="faq2" class="collapse" data-parent="#faq-list">
+              <p>
+                The status of the documents is seen in the “Document Tracker” tab where all document related logs are updated as soon as the document has any notable changes to its status on the CSO side.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">I forgot my password, how can I reset it? <i class="ion-android-remove"></i></a>
+            <div id="faq3" class="collapse" data-parent="#faq-list">
+              <p>
+               Please inform your CSO officer in-charge for your organization, and the resetted password will be relayed to your organization. Just make sure to remember it so not to bother your CSO officer.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq4" class="collapsed">My balance on the “Your Balance” tab shows me the wrong balance. How is it computed? <i class="ion-android-remove"></i></a>
+            <div id="faq4" class="collapse" data-parent="#faq-list">
+              <p>
+                The balance is computed by taking the most recent balance as stated by the accounting office and then subtracting the amount stated in the document tracker. All approved, and up-to-date transactions mentioned in the document will be subtracted from the balance.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq5" class="collapsed">What is the Home Page? <i class="ion-android-remove"></i></a>
+            <div id="faq5" class="collapse" data-parent="#faq-list">
+              <p>
+                The Home page is where you will find all the links you need - link to the logging Gform, link to the Templates drive, link to the 45th Treasurers Gdrive, and more. They can be found on the panels that occupy the page. Just click on a specific panel to be redirected to your desired form, drive, or sheets.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq6" class="collapsed">What is the Profile Page? <i class="ion-android-remove"></i></a>
+            <div id="faq6" class="collapse" data-parent="#faq-list">
+              <p>
+                This is a pop-up that shows your organisation’s account information. Click on your organisation’s name that is located on the navigation bar in order to access it. Here, you can change your organisation’s email address and password by clicking on the Change button.  
+              </p>
+            </div>
+          </li>
+            
+            <li>
+            <a data-toggle="collapse" href="#faq7" class="collapsed">What is the Balance Page? <i class="ion-android-remove"></i></a>
+            <div id="faq7" class="collapse" data-parent="#faq-list">
+              <p>
+                This page shows your organization’s estimated balance on your account. It is based solely on the accounting office’s most recent update on the balance subtracted by the total amount transacted within a certain time frame.
+              </p>
+            </div>
+          </li>
+            
+            <li>
+            <a data-toggle="collapse" href="#faq8" class="collapsed">What is the Dcoument Trackers Page?<i class="ion-android-remove"></i></a>
+            <div id="faq8" class="collapse" data-parent="#faq-list">
+              <p>
+                This page shows the different documents passed by your organization and reflects the current status of the said document. You can also filter the table to search for a specific activity.
+              </p>
+            </div>
+          </li>
+            
+            <li>
+            <a data-toggle="collapse" href="#faq9" class="collapsed">What is the Debts Page? <i class="ion-android-remove"></i></a>
+            <div id="faq9" class="collapse" data-parent="#faq-list">
+              <p>
+                This page shows the current debts owned by your organization due to overspending your budget and having not enough funds to support the cost. 
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+
+{{> footer}}
+{{> profile}}
+</body>
+</html>
