@@ -28,7 +28,14 @@ $(document).ready(()=>{
                 success: function(result){
                     console.log(result);
                     if(result === "OK"){
-                        window.location = "/home"
+                        $.ajax({
+                            url: "home",
+                            method: "GET",
+                            data: {},
+                            success: function(result){
+                                window.location = "/home";
+                            }
+                        })
                     }else if(result === "PASSWORD"){
                         if($(".loginError").length == 0){
                             $(".logInErrorMessage").append("<label class='loginError' style='color: green;'>No Password is detected in the database. Generated a new password. Please login again.</label>");
