@@ -5,4 +5,33 @@ $(document).ready(()=>{
     $("#document-nav-link").removeAttr('class', 'active')
     $("#help-nav-link").removeAttr('class', 'active')
     $("#users-nav-link").removeAttr('class', 'active')
+
+    $("#createCard").click(function (e) {
+        e.preventDefault();
+        let title = $("#createTitle").val();
+        let desc = $("#createDesc").val();
+        let link = $("#createLink").val();
+
+        $.ajax({
+            url: "createCard",
+            method: "POST",
+            data: {
+                title: title,
+                desc: desc,
+                link: link
+            },
+            success: function(result) {
+                console.log(result)
+                if (result.message === "SUCCESS") {
+                    // $("#responseBody").text("User created successfully.");
+                    // setTimeout(location.reload.bind(location), 1100);
+                } else {
+                    // $("#responseBody").text("Failed to create user.");
+                }
+
+            }
+        });
+        
+
+    });
 })
