@@ -7,66 +7,16 @@
 
     {{!-- Container 1 --}}
     <div class="container">
-        
-      <a href="https://docs.google.com">
-      <div class="col-md-4">
-        <figure class="effect-marley">
-          <img src="../images/google docs.png" alt="" class="img-responsive" />
-            <h4>{{card_header}}</h4>
-            <p>{{card_desc}}</p>
-            
-        </figure><button type="submit" id= "editCard" class="btn btn-default"data-toggle="modal" data-target="#editModal">Edit</button>
-        <button type="submit" id= "deleteCard" class="btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete</button>
-      </div></a>
-        
+      {{#each cards}}
 
-      <a href="https://tinyurl.com/45thFinanceDrive" class="active">
-      <div class="col-md-4">
-        <figure class="effect-marley">
-          <img src="../images/google drive.png" alt="" class="img-responsive" />
-            <h4>{{card_header}}</h4>
-            <p>{{card_desc}}</p>
-        </figure><button type="submit" id= "editCard" class="btn btn-default" data-toggle="modal" data-target="#editModal">Edit</button>
-        <button type="submit" id= "deleteCard" class="btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete</button>
-      </div></a>
-        
-        
-      <a href="https://sheets.google.com">
-      <div class="col-md-4">
-        <figure class="effect-marley">
-          <img src="../images/google sheets.png" alt="" class="img-responsive" />
-            <h4>{{card_header}}</h4>
-            <p>{{card_desc}}</p>
-        </figure>
-        <button type="submit" id= "editCard" class="btn btn-default" data-toggle="modal" data-target="#editModal">Edit </button>
-        <button type="submit" id= "deleteCard" class="btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete</button>
-      </div></a>
-
-    </div>
-
-    {{!-- Container 2 --}}
-    <div class="container">
-        
-      <a href="https://tinyurl.com/FinanceSubmission1920">
-      <div class="col-md-4">
-        <figure class="effect-marley">
-          <img src="../images/11.jpg" alt="" class="img-responsive" />
-            <h4>{{card_header}}</h4>
-            <p>{{card_desc}}</p>
-        </figure><button type="submit" id= "editCard" class="btn btn-default" data-toggle="modal" data-target="#editModal">Edit </button>
-        <button type="submit" id= "deleteCard" class="btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete</button>
-      </div></a>
-
-      <a href="https:google.com">
-      <div class="col-md-4">
-        <figure class="effect-marley">
-          <img src="../images/12.jpg" alt="" class="img-responsive" />
-            <h4>{{card_header}}</h4>
-            <p>{{card_desc}}</p>
-        </figure><button type="submit" id= "editCard" class="btn btn-default" data-toggle="modal" data-target="#editModal">Edit </button>
-        <button type="submit" id= "deleteCard" class="btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete</button>
-      </div></a>
-
+                <a href={{link}}>
+        <div class="col-md-4">
+          <figure class="effect-marley">
+            <img src="../images/11.jpg"  alt="" class="img-responsive">
+              <h4>{{cardTitle}}</h4>
+              <p>{{cardDesc}}</p>
+          </figure></div></a>
+        {{/each}}
       <a href="#" data-toggle="modal" data-target="#createModal">
       <div class="col-md-4">
         <figure class="effect-marley">
@@ -74,6 +24,6 @@
             <h4>Create Card</h4>
             <p>Add a new card.</p>
         </figure></a>
+    </div>
 
-      </div>
     </div>
