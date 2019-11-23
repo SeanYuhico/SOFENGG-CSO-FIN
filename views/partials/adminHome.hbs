@@ -7,16 +7,16 @@
 
     {{!-- Container 1 --}}
     <div class="container">
-      {{#each cards}}
-
-                <a href={{link}}>
+      {{#each card}}
+      <a href={{link}}>
         <div class="col-md-4">
           <figure class="effect-marley">
             <img src="../images/11.jpg"  alt="" class="img-responsive">
               <h4>{{cardTitle}}</h4>
               <p>{{cardDesc}}</p>
           </figure></div></a>
-        {{/each}}
+      {{/each}}
+      
       <a href="#" data-toggle="modal" data-target="#createModal">
       <div class="col-md-4">
         <figure class="effect-marley">
