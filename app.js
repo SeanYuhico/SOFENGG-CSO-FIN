@@ -19,6 +19,7 @@ const balanceModel = require(__dirname + "/models/balance.js");
 const debtsModel = require(__dirname + "/models/debts.js");
 //Controllers
 const userController = require(__dirname + "/controllers/user.js");
+const cardController = require(__dirname + "/controllers/card.js");
 // const docuController = require(__dirname + "/controllers/document-tracker.js");
 
 //Others
@@ -38,8 +39,7 @@ let documents;
 //Listen
 app.listen(process.env.PORT || 3001, function(){console.log("Live at port 3001");});
 
-//Routes
-app.get("/", (req, res)=>{
+function home (req, res) {
     var authenticated = false;
     console.log("Session: " + req.session.organization);
  
@@ -48,34 +48,20 @@ app.get("/", (req, res)=>{
     }
  
     if(authenticated === true){
-        res.render("home.hbs", {
-            admin : req.session.admin,
-            org : req.session.organization
-        })
+        cardController.RetrieveAll(req, res);
     }else{
+        console.log("wat");
         res.render("login.hbs", {});
     }
+}
+
+//Routes
+app.get("/", (req, res)=>{
+    home(req, res);
 });
 
 app.get("/home", (req, res)=>{
-    var authenticated = false;
-    console.log("Session: " + req.session.organization);
- 
-    if(req.session.organization){
-        authenticated = true;
-    }
- 
-    if(authenticated === true){
-        res.render("home.hbs", {
-            admin : req.session.admin,
-            org : req.session.organization,
-            orgEmail: req.session.email
-        })
-    }else{
-        res.render("404.hbs", {
-            org : req.session.organization
-        })
-    }
+    home(req, res);
     
 })
 
@@ -236,12 +222,21 @@ app.get("/balance", async(req, res) => {
     });
 }); 
 
-app.post("/login", userController.authenticate);
+app.post("/login", (req, res) => {
+    console.log("/login");
+    userController.authenticate(req, res)
+});
+
 app.post("/logout", userController.logout);
 
 app.post("/createUser", (req, res) => {
     console.log("/createUser");
     userController.Create(req, res);
+});
+
+app.post("/createCard", (req, res) => {
+    console.log("/createCard");
+    cardController.Create(req, res);
 });
 
 app.post("/editSheet", (req,res)=>{
