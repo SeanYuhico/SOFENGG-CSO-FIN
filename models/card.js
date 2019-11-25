@@ -2,7 +2,7 @@ const fb = require("./firebase.js");
 const crypto = require("crypto-js");
 
 const database = fb.database;
-const cardRef = database.ref('/cards/');
+const cardRef = database.ref('cards/');
 
 var connectedRef = fb.database.ref(".info/connected");
 connectedRef.on("value", function(snap) {
@@ -13,21 +13,13 @@ connectedRef.on("value", function(snap) {
   }
 });
 
-function Create(user, callback){
-    let cardRef = database.ref('users/');
+function Create(card, callback){
+    console.log("CREATE")
     cardRef.push({
-        "title": title,
-        "desc": desc,
-        "link": link,
-        "imgSrc": imgSrc
-    });
-    database.ref('users/' + user.org).set({
-        "title": title,
-        "desc": desc,
-        "link": link,
-        "imgSrc": imgSrc
-    }, (err) => {
-        callback(err);
+        "cardTitle": card.title,
+        "cardDesc": card.desc,
+        "link": card.link,
+        "imgSrc": card.imgSrc
     });
 }
 
