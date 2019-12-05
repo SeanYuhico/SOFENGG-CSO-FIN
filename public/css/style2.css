@@ -385,13 +385,13 @@ a:hover {
 }
 .nav-tabs > li {
 	float: left;
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .nav-tabs > li > a {	
 	border-radius:0;
 	color:#fff;
-  padding:30px;
+  padding:26px;
   font-size:14px;
 }
 
