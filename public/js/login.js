@@ -58,37 +58,86 @@ $(document).ready(()=>{
                 $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
+
+                if($(".loginError").length == 0){
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be empty</label>");
+                }else{
+                    $(".logInErrorMessage .loginError").remove();
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be empty</label>");
+                }
+
             }else if(org == "" && em == ""){
                 $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
+
+                if($(".loginError").length == 0){
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization & Email cannot be empty</label>");
+                }else{
+                    $(".logInErrorMessage .loginError").remove();
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization & Email cannot be empty</label>");
+                }
+
             }else if(org == "" && pw == ""){
                 $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
+
+                if($(".loginError").length == 0){
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization & Password cannot be empty</label>");
+                }else{
+                    $(".logInErrorMessage .loginError").remove();
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization &  Password cannot be empty</label>");
+                }
+
+
             }else if(em == "" && pw == ""){
                 $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
+
+                if($(".loginError").length == 0){
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email & Password cannot be empty</label>");
+                }else{
+                    $(".logInErrorMessage .loginError").remove();
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email &  Password cannot be empty</label>");
+                }
+
             }else if(org == ""){
                 $("#loginOrgName").attr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
+
+                if($(".loginError").length == 0){
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization cannot be empty</label>");
+                }else{
+                    $(".logInErrorMessage .loginError").remove();
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization cannot be empty</label>");
+                }
+
             }else if(em == ""){
                 $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").attr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
+
+                if($(".loginError").length == 0){
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email cannot be empty</label>");
+                }else{
+                    $(".logInErrorMessage .loginError").remove();
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email cannot be empty</label>");
+                }
+
             }else if(pw == ""){
                 $("#loginOrgName").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginEmail").removeAttr("style", "box-shadow:2px 2px red;");
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
-            }
 
-            if($(".loginError").length == 0){
-                $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be Empty</label>");
-            }else{
-                $(".logInErrorMessage .loginError").remove();
-                $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be Empty</label>");
+                if($(".loginError").length == 0){
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Password cannot be empty</label>");
+                }else{
+                    $(".logInErrorMessage .loginError").remove();
+                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Password cannot be empty</label>");
+                }
             }
         }
     });
