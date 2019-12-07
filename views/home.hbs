@@ -114,16 +114,15 @@
         <div class="modal fade" id="createModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Create New Card </h4>
+                <div id="createCardHeader" class="modal-header">
+                    <h4 class="modal-title" style="color: whitesmoke;font-weight:bold;">Create New Card </h4>
                 </div>
                 <div class="modal-body modal-center">
                     <h4 id ="modal-title" class="modal-title">Enter Title </h4>
                     <input id="createTitle" type="text" class="form-control"> </input> <br/>
 
                     <h4 id ="modal-title" class="modal-title">Enter Description </h4>
-                    <input id="createDesc"type="text" class="form-control"> </input> <br/>
+                    <textarea rows="8" cols="80" id="createDesc"> </textarea> Enter text here...<br/>
 
                     <h4 id ="modal-title" class="modal-title">Enter Link </h4>
                     <input id="createLink" type="text" class="form-control"> </input> <br/>
@@ -134,6 +133,50 @@
                         <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+ <!-- Create Announcements Modal -->
+        <div class="modal fade" id="createAnnouncementModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div id="createAnnouncementHeader" class="modal-header">
+                    <h4 class="modal-title" style="color: whitesmoke;font-weight:bold;">Create Announcement </h4>
+                </div>
+                <div class="modal-body modal-center">
+                    <h4 id ="modal-title" class="modal-title">Announcement Title </h4>
+                    <input id="announcementTitle" type="text" class="form-control"> </input> <br/>
+
+                    <h4 id ="modal-title" class="modal-title">Announcement Body </h4>
+                    <textarea rows="10" cols="80" id="announcementBody"> </textarea> Enter text here...<br/>
+
+                    <button type="submit" id= "createAnnouncementButton" class="btn btn-default">Create Announcement</button> <br/>
+                    
+                </div>
+                    <div class="modal-footer">
+                        <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+</html>
+
+ <!-- View Announcements Modal -->
+        <div class="modal fade" id="viewAnnouncementModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">View Announcement </h4>
+                </div>
+                <div class="modal-body modal-center">
+                    <h4 id ="modal-title" class="modal-title">Announcement Title </h4>
+                    <input id="announcementTitle" type="text" class="form-control"> </input> <br/>
+                    
+                </div>
+                    <div class="modal-footer">
+                        <button data-toggle="modal" data-target="#viewAnnouncementModal" id="viewAnnouncement" type="button" class="btn btn-default" data-dismiss="modal">View Announcements</button>
+                        <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
             </div>
         </div>
 </html>

@@ -28,6 +28,47 @@
   margin-bottom: 20px;
 }
 
+#createAnnouncement{
+  background: url(../images/announcement\ bell.PNG);
+  padding:18px 18px;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  border-color: #087830;
+  margin-left:30px;
+  margin-top:20px;
+}
+
+#createAnnouncementButton{
+  border-radius: 25px;
+  background-color: #087830;
+  color: white;
+  font-size:14px;
+  position: relative;
+}
+
+#writeAnnouncement:hover{
+  border-color: #f3f3f3;
+}
+
+#announcementDropDown{
+   position: absolute;
+   top: 82%;
+   left: 21%;
+   z-index: 10040;
+}
+
+#createCardHeader{
+  text-align: center;
+  background-color: #087830;
+  font-weight: bold;
+}
+
+#createAnnouncementHeader{
+  text-align: center;
+  background-color: #087830;
+  font-weight: bold;
+}
+
 #faq {
   margin-top: 60px;
   padding: 60px 0;
@@ -391,7 +432,7 @@ a:hover {
 .nav-tabs > li > a {	
 	border-radius:0;
 	color:#fff;
-  padding:26px;
+  padding:23px;
   font-size:14px;
 }
 
