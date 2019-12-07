@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../css/animate.css">
   <link href="../css/animate.min.css" rel="stylesheet">
   <link href="../css/style2.css" rel="stylesheet" />
+  
 
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -102,13 +103,12 @@
                     <button type="submit" id= "editLinkCard" class="btn btn-default">Edit Link</button> <br/>
                     
                 </div>
-                    <div class="modal-footer">
-                        <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-footer">
+                    <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
+            </div>
         </div>
-</body>
 
  <!-- Create Modal -->
         <div class="modal fade" id="createModal" role="dialog">
@@ -122,20 +122,76 @@
                     <input id="createTitle" type="text" class="form-control"> </input> <br/>
 
                     <h4 id ="modal-title" class="modal-title">Enter Description </h4>
-                    <textarea rows="8" cols="80" id="createDesc"> </textarea> Enter text here...<br/>
+                    <textarea rows="8" cols="80" id="createDesc"  style="color: black"> Enter text here... </textarea> <br/>
 
                     <h4 id ="modal-title" class="modal-title">Enter Link </h4>
                     <input id="createLink" type="text" class="form-control"> </input> <br/>
                     <button type="submit" id= "createCard" class="btn btn-default">Create Card</button> <br/>
                     
                 </div>
-                    <div class="modal-footer">
-                        <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-footer">
+                    <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
+            </div>
             </div>
         </div>
 
+
+<!-- View Announcement Modal -->
+  <div id="viewAnnouncementModal" class="modal" tabindex="-1" data-focus-on="input:first">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div id="createAnnouncementHeader" class="modal-header">
+          <h4 class="modal-title" style="color: whitesmoke;font-weight:bold;">View Announcements</h4>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="list-group">
+            <a data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Sample Title 1</h5>
+                <small>Posted 3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <small>Submitted by CSO Finance Admin</small>
+            </a>
+            <a  data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Sample Title 2</h5>
+                <small class="text-muted">Posted 5 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <small>Submitted by CSO Finance Admin</small>
+            </a>
+            <a  data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Sample Title 3</h5>
+                <small class="text-muted">Posted 7 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <small>Submitted by CSO Finance Admin</small>
+            </a>
+            <a  data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Sample Title 4</h5>
+                <small class="text-muted">Posted 10 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <small>Submitted by CSO Finance Admin</small>
+            </a>
+            </a>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+        
  <!-- Create Announcements Modal -->
         <div class="modal fade" id="createAnnouncementModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
@@ -148,35 +204,18 @@
                     <input id="announcementTitle" type="text" class="form-control"> </input> <br/>
 
                     <h4 id ="modal-title" class="modal-title">Announcement Body </h4>
-                    <textarea rows="10" cols="80" id="announcementBody"> </textarea> Enter text here...<br/>
+                    <textarea rows="10" cols="80" id="announcementBody" style="color: black"> Enter text here...</textarea> <br/>
 
                     <button type="submit" id= "createAnnouncementButton" class="btn btn-default">Create Announcement</button> <br/>
                     
                 </div>
-                    <div class="modal-footer">
-                        <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-footer">
+                    <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
             </div>
         </div>
-</html>
 
- <!-- View Announcements Modal -->
-        <div class="modal fade" id="viewAnnouncementModal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">View Announcement </h4>
-                </div>
-                <div class="modal-body modal-center">
-                    <h4 id ="modal-title" class="modal-title">Announcement Title </h4>
-                    <input id="announcementTitle" type="text" class="form-control"> </input> <br/>
-                    
-                </div>
-                    <div class="modal-footer">
-                        <button data-toggle="modal" data-target="#viewAnnouncementModal" id="viewAnnouncement" type="button" class="btn btn-default" data-dismiss="modal">View Announcements</button>
-                        <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-            </div>
-        </div>
+
+</body>
 </html>
