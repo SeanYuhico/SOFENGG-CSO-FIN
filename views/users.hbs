@@ -64,13 +64,17 @@
                 <div class="modal-body modal-center">
                     <label>Organization Name:</label>
                     <input id="orgName" type="text" class="form-control"> </input>
-                     <br/><br/>
+                     <br/>
 
                     <label>Email Address:</label>
                     <input id="orgEmail" type="text" class="form-control"> </input>
-                    <br/><br/>
+                    <br/>
 
                     <label>Password:</label>
+                    <input id="orgPassword" type="password" class="form-control"> </input>
+                    <br/>
+
+                    <label> Re-type Password:</label>
                     <input id="orgPassword" type="password" class="form-control"> </input>
                     <br/>
                     <button type="submit" id= "btncreateUser" class="btn btn-default" data-toggle="modal" data-target="#responseModal">Create User</button> 
@@ -109,10 +113,10 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Delete Confirmation </h4>
                 </div>
-                <div class="modal-body modal-center">
-                    <label>Are you sure you wish to delete this account?</label>
-                     <br/><br/>
-                    <button type="submit" id= "btndeleteUser" class="btn btn-default">Yes</button>
+                <div class="modal-body text-center">
+                    <h4>Are you sure you wish to delete this account?</h4>
+                     <br/>
+                    <button type="submit" id= "btndeleteUser" class="btn btn-default">Delete</button>
                     <button type="button" class="btn button btn-default" data-dismiss="modal">Cancel</button>
                     <br/>
                     

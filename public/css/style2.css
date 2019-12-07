@@ -177,6 +177,12 @@
   z-index: 1;
 }
 
+#deleteModal{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #editTitleCard{
   border-radius: 25px;
   background-color: #087830;
