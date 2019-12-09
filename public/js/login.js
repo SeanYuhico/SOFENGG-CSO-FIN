@@ -45,10 +45,10 @@ $(document).ready(()=>{
                         }
                     }else{
                         if($(".loginError").length == 0){
-                            $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
+                            $(".logInErrorMessage").append("<label class='loginError' >Wrong Username or Password</label>");
                         }else{
                             $(".logInErrorMessage .loginError").remove();
-                            $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
+                            $(".logInErrorMessage").append("<label class='loginError' >Wrong Username or Password</label>");
                         }
                     }
                 }
@@ -60,10 +60,10 @@ $(document).ready(()=>{
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
 
                 if($(".loginError").length == 0){
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Fields cannot be empty</label>");
                 }else{
                     $(".logInErrorMessage .loginError").remove();
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Fields cannot be empty</label>");
                 }
 
             }else if(org == "" && em == ""){
@@ -72,10 +72,10 @@ $(document).ready(()=>{
                 $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
 
                 if($(".loginError").length == 0){
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization & Email cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Organization & Email cannot be empty</label>");
                 }else{
                     $(".logInErrorMessage .loginError").remove();
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization & Email cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Organization & Email cannot be empty</label>");
                 }
 
             }else if(org == "" && pw == ""){
@@ -84,10 +84,10 @@ $(document).ready(()=>{
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
 
                 if($(".loginError").length == 0){
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization & Password cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Organization & Password cannot be empty</label>");
                 }else{
                     $(".logInErrorMessage .loginError").remove();
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization &  Password cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Organization &  Password cannot be empty</label>");
                 }
 
 
@@ -97,10 +97,10 @@ $(document).ready(()=>{
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
 
                 if($(".loginError").length == 0){
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email & Password cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Email & Password cannot be empty</label>");
                 }else{
                     $(".logInErrorMessage .loginError").remove();
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email &  Password cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Email &  Password cannot be empty</label>");
                 }
 
             }else if(org == ""){
@@ -109,10 +109,10 @@ $(document).ready(()=>{
                 $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
 
                 if($(".loginError").length == 0){
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Organization cannot be empty</label>");
                 }else{
                     $(".logInErrorMessage .loginError").remove();
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Organization cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Organization cannot be empty</label>");
                 }
 
             }else if(em == ""){
@@ -121,10 +121,10 @@ $(document).ready(()=>{
                 $("#loginPassword").removeAttr("style", "box-shadow:2px 2px red;");
 
                 if($(".loginError").length == 0){
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Email cannot be empty</label>");
                 }else{
                     $(".logInErrorMessage .loginError").remove();
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Email cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Email cannot be empty</label>");
                 }
 
             }else if(pw == ""){
@@ -133,10 +133,10 @@ $(document).ready(()=>{
                 $("#loginPassword").attr("style", "box-shadow:2px 2px red;");
 
                 if($(".loginError").length == 0){
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Password cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Password cannot be empty</label>");
                 }else{
                     $(".logInErrorMessage .loginError").remove();
-                    $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Password cannot be empty</label>");
+                    $(".logInErrorMessage").append("<label class='loginError' >Password cannot be empty</label>");
                 }
             }
         }
