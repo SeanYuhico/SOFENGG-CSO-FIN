@@ -21,8 +21,10 @@
             {{#if org}}
             {{#if admin}}
                 {{> adminNav}}
+                {{> adminAnnouncement}}
             {{else}}
                 {{> nav}}
+                {{> userAnnouncement}}
             {{/if}}
         {{else}}
             {{> nav}}
