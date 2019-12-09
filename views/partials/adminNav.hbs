@@ -1,6 +1,6 @@
 <header id="header">
     <nav class="navbar navbar-default navbar-static-top" role="banner">
-      <div class="container">
+      <div id="navContainer" class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -9,7 +9,8 @@
                         <span class="icon-bar"></span>
                     </button>
           <div class="navbar-brand">
-            <a data-toggle="modal" href="#ProfileModal"><h1>Profile</h1></a>
+            <a data-toggle="modal" href="#ProfileModal"><button class="btn btn-primary button" id="viewProfileBtn" type="button"> </button></a>
+            
           </div>
         </div>
         <div class="navbar-collapse collapse">
@@ -22,7 +23,7 @@
           <div class="menu">
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation"><a href="/home" id="home-nav-link" class="active">Home</a></li>
-              <li role="presentation"><a href="/balance" id="balance-nav-link">Your Balance</a></li>
+              <li role="presentation"><a href="/balance" id="balance-nav-link">Balance</a></li>
               <li role="presentation"><a href="/documentTracker" id="document-nav-link">Document Tracker</a></li>
               <li role="presentation"><a href="/debts" id="debts-nav-link">Debts</a></li>
               <li role="presentation"><a href="/users" id="users-nav-link">Users</a></li>
