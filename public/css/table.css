@@ -9,10 +9,29 @@ div.dataTables_wrapper {
     color: black;
   }
 
+  #documentLabel {
+    margin-top: 5px !important;
+  }
+
+  #bottom {
+    margin: 10px 0px;
+    display: flex;
+  }
+
+  #bottom div {
+    width: 50%;
+  }
   .box {
-    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
     box-shadow: 8px 8px 12px rgba(64, 95, 80, 0.5);
     border-radius: 9px;
+  }
+
+  div.dataTables_wrapper {
+    margin: initial !important;
   }
 
   span {
@@ -22,6 +41,8 @@ div.dataTables_wrapper {
   input {
     color: black;
   }
+
+  #myTable_filter {display: none}
 
   .dataTables_scroll {
     box-shadow: 8px 8px 12px rgba(64, 95, 80, 0.5);
