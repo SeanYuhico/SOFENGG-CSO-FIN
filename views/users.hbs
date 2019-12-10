@@ -3,7 +3,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> ADMIN TABLE </title>
+        <title> Settings </title>
         <!-- Bootstrap -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/font-awesome.min.css">
@@ -27,12 +27,14 @@
     <body>
         {{>adminNav}}
         {{> adminAnnouncement}}
-       <div id="admin"> <h1>Admin: {{user.organization}}</h1></div>
+       
+            <div class="container" style="margin-top:80px; margin-bottom:80px;">
+        <div class="row">
+            <div class="col-md-3"><div id="admin"><p style="font-size:60;">Settings</p> <br>
+            <h1 style='color:green; font-weight:bold; font-size: 45'>{{user.organization}}</h1></div>
        <button id="addUser" class="addUser" type="button" data-toggle="modal" data-target="#addModal">Create Account</button>
-       <br><br>
-      
-        
-        <table id="table1" style="width:100%">
+       <br><br></div>
+            <div class="col-md-9"><table id="table1" style="width:100%">
             <tr>
                 <th>Organization</th>
                 <th>Email Address</th>
@@ -48,7 +50,11 @@
                     </tr>
             {{/each}}
                 
-        </table>
+        </table></div>
+        </div>
+        </div>
+        
+        
         {{> footer}}
         {{> profile}}
 
