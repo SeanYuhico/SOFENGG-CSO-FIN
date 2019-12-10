@@ -11,7 +11,7 @@ $(document).ready(() => {
         let title = $(this).text();
         
         
-        $(this).html( '<input type="text" data-index =' + i + ' placeholder="Search '+title+'" />' );
+        $(this).html( '<input type="text" data-index =' + i + ' autocomplete="off" placeholder="Search '+title+'" />' );
         $(this).addClass('filter');
         if (title === 'Remarks' || 'Pended') {
             $(this).addClass('fixedCol');

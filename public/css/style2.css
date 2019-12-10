@@ -65,7 +65,7 @@
 #announcementDropDown{
    position: absolute;
    top: 82%;
-   left: 21%;
+   left: 13%;
    z-index: 10040;
 }
 
@@ -141,11 +141,11 @@
 #ProfileModalDialog{
   height: 200px;
   width: 400px;
-   position: absolute;
-   top: 6%;
-   left: 14%;
-   z-index: 10040;
-   /* overflow: auto;
+  position: absolute;
+  top: 6%;
+  left: 9%;
+  z-index: 10040;
+  /* overflow: auto;
    overflow-y: auto; */
 }
 
@@ -313,8 +313,8 @@
 }
 
 img{
-  border-radius:25px;
-  
+  box-shadow: 8px 8px 12px rgba(64, 95, 80, 0.5);
+  border-radius: 8px;
 }
 
 #WAT{
@@ -466,14 +466,14 @@ a:hover {
 	color:#fff;
 	/* padding:23px; */
 	/* height: 100%; */
-  font-size:14px;
-  padding: 14px 15px;
+	font-size: 12px;
+	padding: 16px 15px;
 }
 
 .nav-tabs > li > a:hover {
 	color:#272727;
 	background:#fff;
-	font-size:14px;
+	font-size: 12px;
 	border-radius: 15px;
 } 
 
@@ -1088,8 +1088,8 @@ ul.social_icons li  a i{
 ============================ */
 
 .gallery {
-    margin-top: 100px;
-  padding:50px;
+    margin-top: 90px;
+    /* padding:50px; */
 }
 
 .gallery .text-center h2 {
@@ -1113,6 +1113,7 @@ ul.social_icons li  a i{
 	position: relative;
 	display: block;
 	opacity: 0.8;
+	/* box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2); */
 }
 
 .gallery figure figcaption {

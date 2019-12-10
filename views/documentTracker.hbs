@@ -6,12 +6,17 @@
         <title>Document Tracker </title>
 
         <!-- Bootstrap -->
-        <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
         <link href="../css/bootstrap.min.css" rel="stylesheet">
+        {{!-- <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css"> --}}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css">
+        {{!-- <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"> --}}
+        <link href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.bootstrap.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="../css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/animate.css">
         <link href="../css/animate.min.css" rel="stylesheet">
-        <link href="../css/style2.css" rel="stylesheet" />
+        <link href="../css/style2.css" rel="stylesheet"/>
         <link href="../css/document.css" rel="stylesheet" />
         <link href="../css/table.css" rel="stylesheet" />
         
@@ -33,7 +38,7 @@
         <h1 id="documentLabel"> DOCUMENT LOGS </h1> <br/>
         <h2 id="orgLabel"> {{org}} </h2> <br/>
         <div id="WAT">
-            <table id="myTable" style="color: black; border: 1px solid black; width: 100%">
+            <table id="myTable" style="color: black; border: none; width: 100%">
             <thead>
             <tr>
                 <th>Date of Submission</th>
@@ -92,8 +97,14 @@
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+        {{!-- <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script> --}}
         <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+        <script src="https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js"></script>
+        <script src="https://cdn.datatables.net/autofill/2.3.4/js/autoFill.bootstrap.min.js"></script>
+    
         <script src="../js/global.js"></script>    
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
@@ -105,18 +116,23 @@
             
             $(document).ready( function () {
                 table = $('#myTable').DataTable({
-                    orderCellsTop: true,
-                    fixedHeader: true,
+                    "language": {
+                        search: '<i class="glyphicon glyphicon-search" aria-hidden="true">',
+                        searchPlaceholder: ''
+                    },
+                    autoFill: false,
+                    orderCellsTop:  true,
+                    fixedHeader:    true,
                     scrollX:        true,
                     scrollY:        300,
                     scrollCollapse: true,
-                    responsive:     true,
                     
                     fixedColumns:   {
                         leftColumns: 0,
                         rightColumns: 2
                     }
                 });
+
                 // Filter event handler
                 $(table.table().container()).on( 'keyup', 'thead input', function () {
                     console.log("hewoo");
