@@ -35,13 +35,28 @@
             {{> nav}}
         {{/if}}
         
-        <h1 id="documentLabel"> DOCUMENT LOGS </h1> <br/>
-        <h2 id="orgLabel"> {{org}} </h2> <br/>
         <div id="WAT">
+            
+            <div class="box" >
+                <h1 id="documentLabel"> DOCUMENT LOGS </h1> <br/>
+                <h2 id="orgLabel"> {{org}} </h2> <br/>
+                <div data-column="1">
+                    <span>Submitted By: </span>
+                    <input autocomplete="off" class="form-control column_filter" id="col1_filter" type="search">
+                </div>
+                <div data-column="2">
+                    <span>Activity Title: </span>
+                    <input autocomplete="off" class="form-control column_filter" id="col2_filter" type="search">
+                </div>
+                <div data-column="5">
+                    <span>PRS Number: </span>
+                    <input autocomplete="off" class="form-control column_filter" id="col5_filter" type="number">
+                </div>
+            </div>
             <table id="myTable" style="color: black; border: none; width: 100%">
             <thead>
             <tr>
-                <th>Date of Submission</th>
+                <th>Submission Date</th>
                 <th>Submitted By </th>
                 <th>Title of Activity</th>
                 <th>Activity Description Date</th>
@@ -133,14 +148,19 @@
                     }
                 });
 
-                // Filter event handler
-                $(table.table().container()).on( 'keyup', 'thead input', function () {
-                    console.log("hewoo");
-                    table
-                        .column( $(this).data('index') )
-                        .search( this.value )
-                        .draw();
+                function filterColumn ( i ) {
+                    table.column( i ).search(
+                        $('#col'+i+'_filter').val(), false, true
+                    ).draw();
+                }
+
+                $('input.column_filter').on( 'keyup click', function () {
+                    filterColumn( $(this).parents('div').attr('data-column') );
+
+                    table.column($(this).parents('div').attr('data-column')).search(this.value).draw();
                 } );
+
+                
             });
 
             
