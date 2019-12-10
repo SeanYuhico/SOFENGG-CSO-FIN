@@ -12,6 +12,21 @@ body {
     height:100%;
 }
 
+.logInError{
+    justify-content: center;
+    text-align: center;
+    width: 350px;
+    border-style: solid;
+    border-color: #ff3f3f;
+    color: #ff3f3f;
+    background-color:#FFDCE0;
+    border-width: 1.7pt;
+    border-radius: 7px;
+    font-size: 17;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
 .main-section{
     align-items: center;
     justify-content: center;

@@ -52,7 +52,7 @@ $(document).ready(() => {
 
     $("#btncreateUser").click(function (e) {
         e.preventDefault();
-        let org = $("#orgName").val();
+        let org = $("#orgName").val().toUpperCase();
         let email = $("#orgEmail").val();
         let password = $("#orgPassword").val();
 
