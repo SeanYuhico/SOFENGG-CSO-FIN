@@ -1,188 +1,202 @@
 div.dataTables_wrapper {
-    font-family:'Open Sans', Arial, sans-serif;
-    border-collapse: collapse;
-    max-width: 100%;
-    width: 90%;
-    white-space: nowrap;
-    margin: 0 auto;
-    border: none;
-    color: black;
-  }
-
-  #documentLabel {
-    margin-top: 5px !important;
-  }
-
-  #bottom {
-    margin: 10px 0px;
-    display: flex;
-  }
-
-  #bottom div {
-    width: 50%;
-  }
-  .box {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    padding: 20px;
-    width: 100%;
-    box-shadow: 8px 8px 12px rgba(64, 95, 80, 0.5);
-    border-radius: 9px;
-  }
-
-  div.dataTables_wrapper {
-    margin: initial !important;
-  }
-
-  span {
-    color: black;
-  }
-
-  input {
-    color: black;
-  }
-
-  #myTable_filter {display: none}
-
-  .dataTables_scroll {
-    box-shadow: 8px 8px 12px rgba(64, 95, 80, 0.5);
-    border-radius: 9px;
-    
-  }
-
-  .DTFC_RightHeadWrapper table thead tr th:last-child{
-    border-right: none;
-  }
-
-  table.dataTable {
-    margin-top: 0px !important;
-  }
-
-  .DTFC_RightHeadWrapper table thead tr th:last-child{
-    border-right: none;
-  }
-  .DTFC_RightHeadWrapper, .DTFC_RightBodyWrapper {
-    box-shadow: -6px 0px 5px rgba(64, 95, 80, 0.2);
-  }
-
-  .DTFC_RightHeadWrapper table, .DTFC_RightHeadWrapper table thead tr:first-child th:last-child{
-    border-top-right-radius: 9px;
-  }
-
-  thead tr:first-child th{
-    border-top: none;
-  }
-  thead tr th:first-child{
-    border-left: none;
-  }
-
-  tbody tr:first-child td{
-    border-top: none;
-  }
-
-  table tr:last-child td{
-    border-bottom: none;
-  }
-
-  table tr td:first-child{
-    border-left: none;
-  }
-
-  table tr td:last-child{
-    border-right: none;
-  }
-
-  table.dataTable tbody th,
-table.dataTable tbody td {
-    white-space: nowrap;
+  font-family:'Open Sans', Arial, sans-serif;
+  border-collapse: collapse;
+  max-width: 100%;
+  width: 90%;
+  white-space: nowrap;
+  margin: 0 auto;
+  border: none;
+  color: black;
+  /* background-color: white; */
 }
-  
-  td, th {
-    border: 0.5px solid #ddd;
-    font-size: 12px;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even){background-color: #f2f2f2;}
-  
-  tr:hover {
-    background-color: #ddd;
-  }
 
-  th {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: left;
-    /* background-color: #4CAF50; */
-    /* color: white; */
-  }
+#documentLabel {
+  margin-top: 5px !important;
+}
 
-  .DTFC_Cloned tbody tr.even {
-    background-color: rgb(223, 223, 223);
-  }
+#bottom {
+  margin: 10px 0px;
+  display: flex;
+}
 
-  th input {
-    background: none;
-    border: none;
-    color: black;
-  }
+#bottom div {
+  width: 50%;
+}
+.box {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0px 6px 20px rgba(55, 130, 94, 0.5);
+  border-radius: 9px;
+  background-color: white;
+}
+
+div.dataTables_wrapper {
+  margin: initial !important;
+}
+
+span {
+  color: black;
+}
+
+input {
+  color: black;
+}
+
+#myTable_filter {display: none}
+
+.dataTables_scroll {
+  box-shadow: 8px 8px 12px rgba(64, 95, 80, 0.5);
+  border-radius: 9px;
+  background-color: white;
+}
+
+.DTFC_RightHeadWrapper table thead tr th:last-child,
+.dataTables_scrollHeadInner table thead tr th:last-child{
+  border-right: none;
+}
+
+/* input.column_filter::placeholder {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+} */
+
+table {
+  color: black;
+}
+
+table.dataTable {
+  margin-top: 0px !important;
+}
+
+.DTFC_RightHeadWrapper table thead tr th:last-child{
+  border-right: none;
+}
+.DTFC_RightHeadWrapper, .DTFC_RightBodyWrapper {
+  box-shadow: -6px 0px 5px rgba(64, 95, 80, 0.2);
+}
+
+.DTFC_RightHeadWrapper table, .DTFC_RightHeadWrapper table thead tr:first-child th:last-child{
+  border-top-right-radius: 9px;
+}
+
+thead tr:first-child th{
+  border-top: none;
+}
+thead tr th:first-child{
+  border-left: none;
+}
+
+tbody tr:first-child td{
+  border-top: none;
+}
+
+table tr:last-child td{
+  border-bottom: none;
+}
+
+table tr td:first-child{
+  border-left: none;
+}
+
+table tr td:last-child{
+  border-right: none;
+}
+
+table.dataTable tbody th,
+table.dataTable tbody td {
+  white-space: nowrap;
+}
+
+td, th {
+  border: 0.5px solid #ddd;
+  font-size: 12px;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+  /* background-color: #4CAF50; */
+  /* color: white; */
+}
+
+.DTFC_Cloned tbody tr.even {
+  background-color: rgb(223, 223, 223);
+}
+
+th input {
+  background: none;
+  border: none;
+  color: black;
+}
 
 
-  input::placeholder {
-    color: rgba(255, 255, 255, 0.8);
-  }
+input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
 
-  .filter input::placeholder {
-    color: black;
-  }
+.filter input::placeholder {
+  color: black;
+}
 
 .DTFC_Blocker {
-  background: #fff;
+background: #fff;
 }
 
 .filter {
-  width: fit-content;
+width: fit-content;
 }
 
 i.glyphicon.glyphicon-search:before {
-  position: absolute;
-  left: -15px;
-  top: 8px;
+position: absolute;
+left: -15px;
+top: 8px;
 }
 
 #myTable_wrapper .row:first-child	{
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 #myTable_wrapper .row	{
-  margin-bottom: 30px;
+margin-bottom: 30px;
 }
 
 .DataTable table > thead > tr > th,
-    .DataTable table > tbody,
-    .DataTable table > tbody > tr,
-    .DataTable table > tbody > tr > td {
-        border: none !important;
-    }
+  .DataTable table > tbody,
+  .DataTable table > tbody > tr,
+  .DataTable table > tbody > tr > td {
+      border: none !important;
+  }
 
 .dataTables_scrollBody::-webkit-scrollbar-track {
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-      background-color: none;
-      border-radius: 10px;
-  }
-  
-  .dataTables_scrollBody::-webkit-scrollbar {
-      width: 6px;
-      background-color: none;
-  }
-  
-  .dataTables_scrollBody::-webkit-scrollbar-thumb
-  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: none;
     border-radius: 10px;
-    background-color: #FFF;
-    background-image: -webkit-linear-gradient(left,
-                          #c8ecd3 0%,
-                          #7ecf97 25%,
-                          #069e34 51%,
-                          #096b3a 75%);
-  }
+}
+
+.dataTables_scrollBody::-webkit-scrollbar {
+    width: 6px;
+    background-color: none;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #FFF;
+  background-image: -webkit-linear-gradient(left,
+                        #c8ecd3 0%,
+                        #7ecf97 25%,
+                        #069e34 51%,
+                        #096b3a 75%);
+}

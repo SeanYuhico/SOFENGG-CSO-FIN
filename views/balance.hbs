@@ -6,8 +6,13 @@
         <title>Balance</title>
 
         <!-- Bootstrap -->
-        <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
         <link href="../css/bootstrap.min.css" rel="stylesheet">
+        {{!-- <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css"> --}}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css">
+        {{!-- <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"> --}}
+        <link href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.bootstrap.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="../css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/animate.css">
         <link href="../css/animate.min.css" rel="stylesheet">
@@ -32,26 +37,27 @@
         <div id="WAT">
             <h1 id="documentLabel"> YOUR BALANCE </h1> <br/>
             <h2 id="orgLabel"> {{org}} </h2> <br/>
-        <div id="WAT">
-            <table id="myTable" style="color: black; border: 1px solid black; width: 100%">
-            <thead>
-            <tr>
-                <th>Month/Year</th>
-                <th>Amount</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each Header}}
-                <tr>
-                    <td> {{this.monthyear}}</td>
-                    <td> {{this.amount}}</td>
-                </tr>
-                {{else}}
-                <tr>
-                    <td colspan="10" style="text-align: center;">No document available in table</td>
-                </tr>
-            {{/each}}
-            </table>
+            <div class="table-container">
+                    <table id="myTable" style="color: black; border: none; width: 100%">
+                    <thead>
+                    <tr>
+                        <th>Month/Year</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each Header}}
+                        <tr>
+                            <td> {{this.monthyear}}</td>
+                            <td> {{this.amount}}</td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td colspan="10" style="text-align: center;">No document available in table</td>
+                        </tr>
+                    {{/each}}
+                    </table>
+            </div>
         </div>
         
         {{> footer}}
@@ -64,8 +70,9 @@
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
         <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
         <script src="../js/global.js"></script>    
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
