@@ -23,10 +23,8 @@ $(document).ready(()=>{
             success: function(result) {
                 console.log(result)
                 if (result.message === "SUCCESS") {
-                    // $("#responseBody").text("User created successfully.");
-                    // setTimeout(location.reload.bind(location), 1100);
+                    location.reload();
                 } else {
-                    // $("#responseBody").text("Failed to create user.");
                 }
 
             }
