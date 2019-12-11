@@ -23,10 +23,14 @@ $(document).ready(()=>{
             success: function(result) {
                 console.log(result)
                 if (result.message === "SUCCESS") {
-                    location.reload();
+                    console.log("wow it's a success")
+                    setTimeout(
+                        function() 
+                        {
+                           location.reload();
+                        }, 2000);   
                 } else {
                 }
-
             }
         });
         
