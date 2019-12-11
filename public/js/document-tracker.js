@@ -1,3 +1,4 @@
+const flatpickr = require("flatpickr");
 $(document).ready(() => {
     
     $("#balance-nav-link").removeAttr('class', 'active')
@@ -19,6 +20,8 @@ $(document).ready(() => {
     //     }
 
     // });
+
+    
     
 });
 

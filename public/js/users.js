@@ -8,7 +8,7 @@ $(document).ready(() => {
 
     let key, userEl, toggle = false;
     
-
+    // opens the modal
     $(".orgsEdit").click(function(){
         key = $(this).parent().parent().data('id');
         //console.log("key: " + key);
@@ -21,29 +21,47 @@ $(document).ready(() => {
         document.getElementById("currentEmail").value = emailEl.textContent;
     });
 
+    // sets the key for the delete
     $(".orgsDelete").click(function() {
         key = $(this).parent().parent().data('id');
     })
 
+    // This is where the ajax to edit the sheet is callewed
     $("#editSheetBtn").click(function(e){
         e.preventDefault();
         console.log("#editSheetBtn");
         let sheetValue = $("#newSheet").val();
         console.log("sheetValue: " + sheetValue);
+
+        // if sheet value is empty
         if (sheetValue) {
-            $.ajax({
-                url: "editSheet",
-                method: "POST",
-                data:{
-                    org: key,
-                    sheetKey: sheetValue
-                }, 
-                success: function(result){
-                    console.log("here?");
-                    //location.reload(true);
-                    //place db shit here
-                }
-            });
+            let valid = true;
+            // validation
+            // check if the sheet is a valid sheet
+            // example:
+            // https://docs.google.com/spreadsheets/d/1-Ssmq_WoEBzy2-3lYCbZtaxgZOnXztAOh5vgSxPRLvw/edit?ts=5dd34cc3#gid=794750413
+            // https://docs.google.com/spreadsheets/d/18iBBzEjOEr_fc8-hRnbn1fWAhdFMFGoRVg6JdDYK3pE/edit?ts=5dcf9c0d#gid=362559981
+            // remove the  https://docs.google.com/spreadsheets/d/ at the start 
+            // ignore everything starting from "/edit"
+            // what remains should be 1-Ssmq_WoEBzy2-3lYCbZtaxgZOnXztAOh5vgSxPRLvw
+
+            if (valid) {
+                $.ajax({
+                    url: "editSheet",
+                    method: "POST",
+                    data:{
+                        org: key,
+                        sheetKey: sheetValue
+                    }, 
+                    success: function(result){
+                        console.log("here?");
+                        //location.reload(true);
+                        //place db stuff here
+                    }
+                });
+            } else {
+                // display invalid view
+            }
         } else {
             // insert warning
             console.log("empty?")
@@ -55,27 +73,32 @@ $(document).ready(() => {
         let org = $("#orgName").val().toUpperCase();
         let email = $("#orgEmail").val();
         let password = $("#orgPassword").val();
-
-        $.ajax({
-            url: "createUser",
-            method: "POST",
-            data: {
-                org: org,
-                em: email,
-                pw: password
-            },
-            success: function(result) {
-                console.log(result)
-                if (result.message === "SUCCESS") {
-                    $("#responseBody").text("User created successfully.");
-                    setTimeout(location.reload.bind(location), 1100);
-                } else {
-                    $("#responseBody").text("Failed to create user.");
-                }
-
-            }
-        });
+        let valid = true;
+        // insert validation 
+        // check if inputs are empty
+        // check if the org is the same as the others
         
+        if (valid) {
+            $.ajax({
+                url: "createUser",
+                method: "POST",
+                data: {
+                    org: org,
+                    em: email,
+                    pw: password
+                },
+                success: function(result) {
+                    console.log(result)
+                    if (result.message === "SUCCESS") {
+                        $("#responseBody").text("User created successfully.");
+                        setTimeout(location.reload.bind(location), 1100);
+                    } else {
+                        $("#responseBody").text("Failed to create user.");
+                    }
+
+                }
+            });
+        }
 
     });
 
@@ -117,7 +140,9 @@ $(document).ready(() => {
         let email = $("#newEmailAddress").val();
         let valid = true;
 
-        // insert code for validation
+        // insert code for validation        
+        // check if it's a legitimate email string
+
         if (valid === true) {
             $.ajax({
                 url: "editEm",
