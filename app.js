@@ -259,6 +259,11 @@ app.get("/balance", async(req, res) => {
     });
 }); 
 
+app.get("/getOrgs", (req, res) => {
+    console.log("/getOrgs");
+    userController.RetrieveOrgs(req, res);
+});
+
 app.post("/login", (req, res) => {
     console.log("/login");
     userController.authenticate(req, res)

@@ -7,7 +7,8 @@ $(document).ready(() => {
     $("#users-nav-link").attr('class', 'active')
 
     let key, userEl, toggle = false;
-    
+    console.log("game time started")
+    console.log(getAllOrgNames());
     // opens the modal
     $(".orgsEdit").click(function(){
         key = $(this).parent().parent().data('id');
@@ -132,6 +133,26 @@ $(document).ready(() => {
             }
         });
     });
+
+
+    function getAllOrgNames () {
+        $.ajax({
+            url: "getOrgs",
+            method: "GET",
+            dataType: "json",
+            success: function(result){
+                console.log("yezz");
+                console.log("message" + result.message)
+                console.log(result);
+                if (result.message === "SUCCESS") {
+                    
+                    return result.orgs;
+                } else {
+                    return null;
+                }
+            }
+        });
+    }
     
     
     $("#editEmailBtn").click(function(e){
