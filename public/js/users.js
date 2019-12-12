@@ -73,10 +73,18 @@ $(document).ready(() => {
         let org = $("#orgName").val().toUpperCase();
         let email = $("#orgEmail").val();
         let password = $("#orgPassword").val();
-        let valid = true;
+        let valid;
+        
         // insert validation 
         // check if inputs are empty
-        // check if the org is the same as the others
+        if(org.length>0&&email.length>0&&password.length>0){
+            // check if the org is the same as the others
+                valid=true;
+        }
+        else{
+            valid = false;
+            $("#responseBody").text("Please enter proper credentials.");
+        }
         
         if (valid) {
             $.ajax({
