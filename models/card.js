@@ -18,16 +18,15 @@ function Create(card, callback){
     cardRef.push({
         "cardTitle": card.title,
         "cardDesc": card.desc,
-        "link": card.link,
-        "imgSrc": card.imgSrc
+        "link": card.link
     });
 }
 
-function RetrieveOne(username, callback){
-    database.ref('cards/' + username).once('value').then(function(snapshot){
-        let user = snapshot.val();
-        console.log(user);
-        callback(user);
+function RetrieveOne(key, callback){
+    database.ref('cards/' + key).once('value').then(function(snapshot){
+        let card = snapshot.val();
+        console.log(card);
+        callback(card);
     });
 }
 
@@ -37,9 +36,9 @@ function RetrieveAll(callback){
     });
 }
 
-function editCard(username, link, callback) {
-    let ref = database.ref('/users/' + username);
-    ref.update({debtsKey: link}, err => {
+function editCard(key, title, body, link, callback) {
+    let ref = database.ref('/cards/' + key);
+    ref.update({cardTitle: title, cardDesc: body, link: link}, err => {
         callback(err);
     });
 }
