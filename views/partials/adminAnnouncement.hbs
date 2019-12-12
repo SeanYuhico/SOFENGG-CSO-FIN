@@ -6,14 +6,13 @@
                     <h4 class="modal-title" style="color: whitesmoke;font-weight:bold;">Create Announcement </h4>
                 </div>
                 <div class="modal-body modal-center">
-                    <h4 id ="modal-title" class="modal-title">Announcement Title </h4>
+                    <h4 class="modal-title">Announcement Title </h4>
                     <input id="announcementTitle" type="text" class="form-control"> </input> <br/>
 
-                    <h4 id ="modal-title" class="modal-title">Announcement Body </h4>
-                    <textarea class="form-control" rows="10" id="announcementBody" style="color: black"> </textarea>
+                    <h4  class="modal-title">Announcement Body </h4>
+                    <textarea class="form-control" id="announcementBody" rows="10" id="announcementBody" style="color: black"> </textarea>
 
                     <button type="submit" id= "createAnnouncementButton" class="btn btn-default">Create Announcement</button> <br/>
-                    
                 </div>
                 <div class="modal-footer">
                     <button id="deleteFooterBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -34,39 +33,25 @@
         
         <!-- Modal body -->
         <div class="list-group">
-            <a data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
+            {{#each announcement}}
+              <a data-id={{@key}} data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 atitle">{{this.title}}</h5>
+                  <small>Posted {{this.dateTime}}</small>
+                </div>
+                <p class="mb-1 abody">{{this.body}}</p>
+              </a>
+                {{else}}
+                <div>There are no Announcements</div>
+            {{/each}}
+            {{!-- <a data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Sample Title 1</h5>
                 <small>Posted 3 days ago</small>
                 </div>
                 <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
                 <small>Submitted by CSO Finance Admin</small>
-            </a>
-            <a  data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sample Title 2</h5>
-                <small class="text-muted">Posted 5 days ago</small>
-                </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small>Submitted by CSO Finance Admin</small>
-            </a>
-            <a  data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sample Title 3</h5>
-                <small class="text-muted">Posted 7 days ago</small>
-                </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small>Submitted by CSO Finance Admin</small>
-            </a>
-            <a  data-toggle="modal" href="#specificViewAnnouncementModal" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sample Title 4</h5>
-                <small class="text-muted">Posted 10 days ago</small>
-                </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small>Submitted by CSO Finance Admin</small>
-            </a>
-            </a>
+            </a> --}}
         </div>
         
         <!-- Modal footer -->
