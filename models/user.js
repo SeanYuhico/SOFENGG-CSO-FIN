@@ -59,6 +59,18 @@ function RetrieveAll(callback){
     });
 }
 
+function RetrieveOrgs(callback){
+    console.log("model RetrieveOrgs")
+    let orgs = [];
+    database.ref('users').once('value').then(function(snapshot){
+
+        snapshot.forEach((org) => {
+            orgs.push(org.key);
+        });
+        callback(orgs);
+    });
+}
+
 function resetSheets(){
     userRef.once("value", function(snapshot) {
         snapshot.forEach(function(child) {
@@ -130,6 +142,7 @@ module.exports = {
     Create,
     RetrieveOne,
     RetrieveAll,
+    RetrieveOrgs,
     Update,
     UpdateEmail,
     UpdatePassword,
