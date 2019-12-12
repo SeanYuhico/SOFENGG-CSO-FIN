@@ -17,9 +17,11 @@ const doc = new GoogleSpreadsheet('1z_6sjroYPL8_TzMf6BGqWIoDzQoC8dnAIDgRjVVTNPQ'
 const DocTrackerModel = require(__dirname + "/models/document-tracker.js");
 const balanceModel = require(__dirname + "/models/balance.js");
 const debtsModel = require(__dirname + "/models/debts.js");
+const announcementModel = require(__dirname + "/models/announcement.js");
 //Controllers
 const userController = require(__dirname + "/controllers/user.js");
 const cardController = require(__dirname + "/controllers/card.js");
+const announcementController = require(__dirname + "/controllers/announcement.js");
 // const docuController = require(__dirname + "/controllers/document-tracker.js");
 
 //Others
@@ -62,7 +64,7 @@ app.get("/", (req, res)=>{
 
 app.get("/home", (req, res)=>{
     home(req, res);
-    
+     
 })
 
 app.get("/help", (req, res)=>{
@@ -74,11 +76,15 @@ app.get("/help", (req, res)=>{
     }
  
     if(authenticated === true){
-        res.render("help.hbs", {
-            admin : req.session.admin,
-            org : req.session.organization,
-            orgEmail: req.session.email
-        })
+        announcementModel.RetrieveAll((announcements) => {
+            res.render("help.hbs", {
+                admin : req.session.admin,
+                org : req.session.organization,
+                Header : req.session.data,
+                announcement : announcements
+            });
+        });
+        
     }else{
         res.render("404.hbs", {
             org : req.session.organization
@@ -94,11 +100,33 @@ app.get("/documentTracker", async(req, res) => {
     documents = await DocTrackerModel.getSpreadsheetRows(req.session.organization);
     if(documents != null){
         req.session.data = documents;
-        res.render("documentTracker.hbs", {
-            admin : req.session.admin,
-            org : req.session.organization,
-            Header : req.session.data
-        })
+
+        const promise = new Promise( (resolve, reject) => {
+            console.log("promise")
+            announcementModel.getAll().then(announcements => {
+                if (value !== null)
+                    return resolve(announcements);
+                return reject();
+            });
+        });
+        promise.then((announcements) => {
+            res.render("documentTracker.hbs", {
+                admin : req.session.admin,
+                org : req.session.organization,
+                Header : req.session.data,
+                announcement : announcements
+            });
+        }).catch ((err)=>{
+            res.render("404.hbs", {
+                org : req.session.organization
+            })
+        });
+        
+        // res.render("documentTracker.hbs", {
+        //     admin : req.session.admin,
+        //     org : req.session.organization,
+        //     Header : req.session.data
+        // })
     }else{
         res.render("404.hbs", {
             org : req.session.organization
@@ -148,10 +176,15 @@ app.get("/debts", async(req, res) => {
         console.log("wow! yay! " + (rows === null))
         if (rows !== null) {
             req.session.data = rows;
-            res.render("debts.hbs", {
-                admin : req.session.admin,
-                org : req.session.organization,
-                Header : req.session.data
+            announcementModel.RetrieveAll((announcements) => {
+                console.log("wowwi");
+                console.log(announcements)
+                res.render("debts.hbs", {
+                    admin : req.session.admin,
+                    org : req.session.organization,
+                    Header : req.session.data,
+                    announcement : announcements
+                });
             });
         } else {
             return null;
@@ -206,13 +239,17 @@ app.get("/balance", async(req, res) => {
         console.log("wow! yay! " + (rows === null))
         if (rows !== null) {
             req.session.data = rows;
-            res.render("balance.hbs", {
-                admin : req.session.admin,
-                org : req.session.organization,
-                Header : req.session.data
+            console.log("wowwa");
+            announcementModel.RetrieveAll((announcements) => {
+                console.log("wowwi");
+                console.log(announcements)
+                res.render("balance.hbs", {
+                    admin : req.session.admin,
+                    org : req.session.organization,
+                    Header : req.session.data,
+                    announcement : announcements
+                });
             });
-        } else {
-            return null;
         }
     })
     .catch ((err)=>{
@@ -239,6 +276,11 @@ app.post("/createCard", (req, res) => {
     cardController.Create(req, res);
 });
 
+app.post("/createAnnouncement", (req, res) => {
+    console.log("/createAnnouncement");
+    announcementController.Create(req, res);
+});
+
 app.post("/editSheet", (req,res)=>{
     console.log("/editSheet");
     userController.updateBalanceDebtsSheet(req, res);
@@ -257,6 +299,16 @@ app.post("/editEm", (req,res)=>{
 app.post("/editPw", (req,res)=>{
     console.log("/editPw");
     userController.editPassword(req, res);
+});
+
+app.post("/editCard", (req,res)=>{
+    console.log("/editCard");
+    cardController.editCard(req, res);
+});
+
+app.post("/editAnnouncement", (req,res)=>{
+    console.log("/editAnnouncement");
+    announcementController.editAnnouncement(req, res);
 });
 
 app.delete("/deleteUser", (req, res) => {
