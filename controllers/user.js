@@ -96,6 +96,10 @@ function RetrieveAll(req, res){
         if(user.admin == 1 && req.session.organization != ""){
             announcementDB.RetrieveAll((announcements) => {
                 userDB.RetrieveAll((users) => {
+                    for (let i = 0; i < users.length; i++) {
+                        delete users[i].password;
+                    }
+
                     res.render("users.hbs", {
                         org : req.session.organization,
                         users: users,
@@ -111,6 +115,17 @@ function RetrieveAll(req, res){
             admin : req.session.admin
         });
     }
+}
+
+function RetrieveOrgs(req, res){
+    userDB.RetrieveOrgs((orgs) => {
+        if (orgs === null) {
+            res.send({message: "FAIL"});
+        } else {
+            res.send({message: "SUCCESS", orgs: orgs})
+        }
+        
+    });
 }
 
 function Create(req, res){
@@ -222,6 +237,7 @@ module.exports = {
     authenticate,
     logout,
     RetrieveAll, 
+    RetrieveOrgs,
     RetrieveBalanceSheet,
     RetrieveDebtsSheet,
     editEmail,
