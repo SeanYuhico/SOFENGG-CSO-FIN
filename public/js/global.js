@@ -30,6 +30,41 @@ $(document).ready(() => {
                 }
             }
         });
+    });
+
+    $("#createAnnouncementButton").click ((e) => {
+        e.preventDefault();
+
+        console.log("wow crate announcemdent")
+
+        let atitle = $("#announcementTitle").val();
+        let abody = $("#announcementBody").val();
+
+        console.log(atitle);
+        console.log(abody)
+
+        if (atitle !== null && abody !== null) {
+            $.ajax({
+                url: "createAnnouncement",
+                method: "POST",
+                data: {
+                    title: atitle,
+                    body: abody
+                },
+                success: function(result) {
+                    console.log(result)
+                    if (result.message === "SUCCESS") {
+                        $("#announcementTitle").val("");
+                        $("#announcementBody").val("");
+                        location.reload(true);
+                        // action when successfully saved to db
+                    } else {
+                        // action when unsaved
+                    }
+
+                }
+            });
+        }
     })
     
 })
