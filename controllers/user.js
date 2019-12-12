@@ -1,4 +1,6 @@
 const userDB = require("../models/user.js");
+const announcementDB = require("../models/announcement.js");
+
 
 function authenticate(req, res){
     let org = req.body.org;
@@ -92,13 +94,16 @@ function RetrieveAll(req, res){
         user.organization = req.session.organization;
         user.admin = req.session.admin;
         if(user.admin == 1 && req.session.organization != ""){
-            userDB.RetrieveAll((users) => {
-                res.render("users.hbs", {
-                    org : req.session.organization,
-                    users: users,
-                    user: user
+            announcementDB.RetrieveAll((announcements) => {
+                userDB.RetrieveAll((users) => {
+                    res.render("users.hbs", {
+                        org : req.session.organization,
+                        users: users,
+                        user: user,
+                        announcement: announcements
+                    });
                 });
-            });
+            })
         }
     } else {
         res.render("404.hbs", {

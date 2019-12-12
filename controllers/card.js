@@ -1,5 +1,6 @@
 const cardDB = require("../models/card.js");
- 
+const announcementDB = require("../models/announcement.js");
+
 function RetrieveAll(req, res){
     console.log("RetrieveAll")
     let authenticated = false;
@@ -11,16 +12,16 @@ function RetrieveAll(req, res){
         console.log("RetrieveAll")
         cardDB.RetrieveAll((cards) => {
             console.log("RetrieveAll")
-            console.log(req.session.admin)
-            console.log(req.session.organization)
-            console.log(req.session.email)
-            console.log(cards)
-            res.render("home.hbs", {
-                admin : req.session.admin,
-                org : req.session.organization,
-                orgEmail: req.session.email,
-                card: cards
-            });
+
+            announcementDB.RetrieveAll((announcements) => {
+                res.render("home.hbs", {
+                    admin : req.session.admin,
+                    org : req.session.organization,
+                    orgEmail: req.session.email,
+                    card: cards,
+                    announcement: announcements
+                });
+            })
         });
     }else{
         res.render("login.hbs");
