@@ -101,26 +101,18 @@ app.get("/documentTracker", async(req, res) => {
     if(documents != null){
         req.session.data = documents;
 
-        const promise = new Promise( (resolve, reject) => {
-            console.log("promise")
-            announcementModel.getAll().then(announcements => {
-                if (value !== null)
-                    return resolve(announcements);
-                return reject();
-            });
-        });
-        promise.then((announcements) => {
+
+        announcementModel.RetrieveAll((announcements) => {
+            console.log("wowwi");
+            console.log(announcements)
             res.render("documentTracker.hbs", {
                 admin : req.session.admin,
                 org : req.session.organization,
                 Header : req.session.data,
                 announcement : announcements
             });
-        }).catch ((err)=>{
-            res.render("404.hbs", {
-                org : req.session.organization
-            })
         });
+        
         
         // res.render("documentTracker.hbs", {
         //     admin : req.session.admin,
