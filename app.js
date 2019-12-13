@@ -316,7 +316,12 @@ app.post("/editAnnouncement", (req,res)=>{
 app.delete("/deleteUser", (req, res) => {
     console.log("/deleteUser");
     userController.Delete(req, res);
-})
+});
+
+app.delete("/deleteCard", (req, res) => {
+    console.log("/deleteCard");
+    cardController.Delete(req, res);
+});
 
 app.use("*", function(req, res){
     res.render("404.hbs", {
