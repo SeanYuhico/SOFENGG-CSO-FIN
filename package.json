@@ -1,6 +1,9 @@
 {
   "name": "sofengg-cso-fin",
   "version": "1.0.0",
+  "engines": {
+    "node" : "13.0.1"
+  },
   "description": "CSO Fin Website",
   "main": "index.js",
   "scripts": {
@@ -42,8 +45,5 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.144"
-  },
-  "engines": {
-    "node" : "13.0.1"
   }
 }
