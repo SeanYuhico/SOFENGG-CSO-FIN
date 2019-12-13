@@ -124,17 +124,22 @@
         <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script> --}}
         <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
         <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+        <script src="https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"></script>
     
         <script src="../js/global.js"></script>    
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/wow.min.js"></script>
-        <script src="../js/document-tracker.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="../js/document-tracker.js"></script>
+        
         <script>
             wow = new WOW({}).init();
             
             $(document).ready( function () {
+                let format = 'M/D/YYYY';
+                $.fn.dataTable.moment( format);
                 table = $('#myTable').DataTable({
                     "language": {
                         search: '<i class="glyphicon glyphicon-search" aria-hidden="true">',
