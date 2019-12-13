@@ -424,7 +424,7 @@ a:hover {
 
 .menu {
 	font-size: 12px;
-	float:right;
+	/* float:right; */
 	/* text-transform:uppercase; */
 	font-weight:600;
 	height: 100%;
@@ -437,7 +437,7 @@ a:hover {
   /* padding-right: 15px; */
   /* padding-left: 15px; */
   /* width: 100%; */
-  margin: 0px -15px !important;
+  margin: 0px -20px !important;
   justify-content: center!important;
   align-items: center!important;
   height: 100%!important;
@@ -460,12 +460,13 @@ a:hover {
 	border-bottom: 0;
 	height: 100%;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 }
 .nav-tabs > li {
 	float: left;
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .nav-tabs > li > a {
@@ -590,6 +591,24 @@ a:hover {
     }
     .carousel-caption h2, .carousel-caption  h2 span, .carousel-caption  p {
     	font-size:18px;
+    }
+
+    .menu ul.nav-tabs li {
+      color:#fff;
+      height: 100%;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .nav-tabs {
+      border-bottom: 0;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
     }
 }
 
