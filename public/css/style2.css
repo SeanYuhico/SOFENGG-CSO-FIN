@@ -167,7 +167,7 @@
   padding: 20px 20px;
 }
 
-#editCard{
+.editCard{
   border-radius: 50px;
   background-color: #087830;
   color: white;
@@ -178,7 +178,7 @@
   z-index: 1;
 }
 
-#deleteCard{
+.deleteCard{
   border-radius: 50px;
   background-color: #087830;
   color: white;
