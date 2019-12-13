@@ -4,7 +4,7 @@
   "description": "CSO Fin Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -42,5 +42,8 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.144"
+  },
+  "engines": {
+    "node" : "13.0.1"
   }
 }
