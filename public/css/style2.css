@@ -180,7 +180,7 @@
 
 .deleteCard{
   border-radius: 50px;
-  background-color: #087830;
+  background-color: #124d25;
   color: white;
   padding: 10px 30px;
   /* margin-top: -50px; */
@@ -1133,7 +1133,7 @@ ul.social_icons li  a i{
 	background-color: #fff;
 	text-align: center;
 	cursor: pointer;
-	border-radius: 25px;
+	border-radius: 15px;
 	display: flex;
 	align-items: center;
 	min-height: 210px;
@@ -1181,7 +1181,7 @@ figure.effect-marley p {
 
 
 figure.effect-marley p {
-	bottom: 30px;
+	bottom: 40px;
 	color: #11280c;
 	line-height: 1.5;
 	-webkit-transform: translate3d(0,100%,0);
@@ -1194,7 +1194,7 @@ figure.effect-marley h4 {
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,20px,0);
-	transform: translate3d(0,20px,0);
+	transform: translate3d(0,50px,0);
 }
 
 figure.effect-marley a {
@@ -1212,8 +1212,8 @@ figure.effect-marley h4::after {
 	top: 100%;
 	left: 0;
 	width: 100%;
-	height: 4px;
-	background: #fff;
+	height: 2px;
+	background: #087830;
 	content: '';
 	-webkit-transform: translate3d(0,40px,0);
 	transform: translate3d(0,40px,0);
@@ -1531,5 +1531,5 @@ ul.social-network li a {
 
 .effect-marley img.img-responsive {
     height: 210px;
-    border-radius: 25px;
+    border-radius: 15px;
 }
