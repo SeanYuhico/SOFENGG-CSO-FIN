@@ -35,7 +35,7 @@ function UpdatePassword (org, email, password, callback) {
         callback(err);
     });
 }
-
+ 
 function RetrieveOne(username, callback){
     database.ref('users/' + username).once('value').then(function(snapshot){
         let user = snapshot.val();
@@ -50,6 +50,24 @@ function RetrieveOne(username, callback){
         }else {
             callback(null)
         }
+    });
+}
+
+function ComparePassword(username, password, callback){
+    database.ref('users/' + username).once('value').then(function(snapshot){
+        let user = snapshot.val();
+        console.log(user);
+        if(user){
+            user.username = username;
+            if (user.password != ""){
+                user.password = crypto.AES.decrypt(user.password, user.email).toString(crypto.enc.Utf8);
+            } else {
+                user.password = "";
+            }
+            if (password === user.password)
+                callback(true);
+        }
+        callback(false);
     });
 }
 
@@ -141,6 +159,7 @@ function Delete(key, callback){
 module.exports = {
     Create,
     RetrieveOne,
+    ComparePassword,
     RetrieveAll,
     RetrieveOrgs,
     Update,

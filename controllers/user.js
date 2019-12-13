@@ -233,6 +233,16 @@ function updateBalanceDebtsSheet (req, res) {
     })
 }
 
+function ValidatePassword (req, res) {
+    let pw = req.body.password;
+    let org = req.body.org;
+
+    userDB.ComparePassword(org, pw, (valid) => {
+        res.send({message: "SUCCESS", valid: valid});
+    });
+    res.send({message: "FAIL", valid: false})
+}
+
 module.exports = {
     authenticate,
     logout,
@@ -245,5 +255,6 @@ module.exports = {
     resetPassword,
     updateBalanceDebtsSheet,
     Create,
+    ValidatePassword,
     Delete
 }

@@ -256,6 +256,11 @@ app.get("/getOrgs", (req, res) => {
     userController.RetrieveOrgs(req, res);
 });
 
+app.get("/checkValidPw", (req, res) => {
+    console.log("/checkValidPw");
+    userController.ValidatePassword(req, res);
+})
+
 app.post("/login", (req, res) => {
     console.log("/login");
     userController.authenticate(req, res)
