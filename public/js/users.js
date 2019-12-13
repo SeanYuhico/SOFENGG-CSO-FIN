@@ -99,6 +99,7 @@ $(document).ready(() => {
 
             for(var i = 0; i<orgs.length;i++){
                 if(org==orgs[i]){
+                    console.log("MERON NA");
                     valid=false;
                     $("#responseBody").text("The Organization Name That You Have Entered Already Exists.");
                     break;
