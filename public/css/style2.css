@@ -34,8 +34,8 @@
   background-repeat: no-repeat;
   border-radius: 20px;
   border-color: #087830;
-  /* margin-left:30px; */
-  margin-top: 6px;
+  margin-left: 10px;
+  /* margin-top: 6px; */
   background-position: center;
 }
 
@@ -172,10 +172,10 @@
   background-color: #087830;
   color: white;
   padding: 10px 30px;
-  margin-left: 30%;
-  margin-top: -50px;
-  position:absolute;
-  z-index: 1;
+  /* margin-left: 30%; */
+  /* margin-top: -50px; */
+  /* position:absolute; */
+  /* z-index: 1; */
 }
 
 .deleteCard{
@@ -183,10 +183,10 @@
   background-color: #087830;
   color: white;
   padding: 10px 30px;
-  margin-top: -50px;
-  margin-left: calc(30% + 100px);
-  position:absolute;
-  z-index: 1;
+  /* margin-top: -50px; */
+  /* margin-left: calc(30% + 100px); */
+  /* position:absolute; */
+  /* z-index: 1; */
 }
 
 
@@ -1115,8 +1115,12 @@ ul.social_icons li  a i{
 	text-align: center;
 	cursor: pointer;
 	border-radius: 25px;
+	display: flex;
+	align-items: center;
 	min-height: 210px;
+	justify-content: center;
 	min-width: 280px;
+	width: 90%;
 }
 
 .gallery figure .card {
@@ -1490,3 +1494,23 @@ ul.social-network li a {
 	font-size:12px;
 	text-shadow:none;
 } 
+
+.cardbtn-container {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    position: relative;
+    top: -55px;
+}
+
+.card-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.effect-marley img.img-responsive {
+    height: 210px;
+    border-radius: 25px;
+}
