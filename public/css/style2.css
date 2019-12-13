@@ -375,10 +375,10 @@ a:hover {
 	}
 
 .btn {
-	border-radius:0;
-	/*margin-top:10px;*/
-	background-color: #65AAF0;
-	text-transform:uppercase;
+	/* border-radius:0; */
+	/* margin-top:10px; */
+	/* background-color: #65AAF0; */
+	/* text-transform:uppercase; */
 	border-color:#fff;
 	font-size:14px;
 }
