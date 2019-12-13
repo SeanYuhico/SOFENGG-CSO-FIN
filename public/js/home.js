@@ -42,7 +42,7 @@ $(document).ready(()=>{
     
     $(".editCard").click(function (e) {
         e.preventDefault();
-        key = $(this).parent().parent().attr("data-id");
+        key = $(this).parent().parent().parent().attr("data-id");
         let cardEl = document.querySelectorAll('[data-id="' + key + '"]')[0];
         let titleEl = cardEl.querySelector('.cardTitle');
         let descEl = cardEl.querySelector('.cardDesc');
