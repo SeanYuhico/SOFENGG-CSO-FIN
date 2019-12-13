@@ -8,15 +8,17 @@
     {{!-- Container 1 --}}
     <div class="container">
       {{#each card}}
-      <a href={{link}}>
+      <a data-id={{@key}} class="cardLink" href={{link}}>
         <div class="col-md-4">
           <figure class="effect-marley">
             <img src="../images/11.jpg"  alt="" class="img-responsive">
-              <h4>{{cardTitle}}</h4>
-              <p>{{cardDesc}}</p>
-          </figure><button type="submit" data-id={{@key}}  class="editCard btn btn-default"data-toggle="modal" data-target="#editModal">Edit</button>
-            <button type="submit" data-id={{@key}}  class="deleteCard btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete</button></div>
-          </a>
+              <h4 class="cardTitle">{{cardTitle}}</h4>
+              <p class="cardDesc">{{cardDesc}}</p>
+          </figure>
+          <button type="submit"  class="editCard btn btn-default"data-toggle="modal" data-target="#editModal">Edit</button>
+          <button type="submit" class="deleteCard btn btn-default" data-toggle="modal" data-target="#deleteModal">Delete</button>
+        </div>
+      </a>
       {{/each}}
       
       <a href="#" data-toggle="modal" data-target="#createModal">
