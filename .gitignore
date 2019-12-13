@@ -75,3 +75,5 @@ typings/
 .fusebox/
 
 firebase.js
+
+/node_modules/
