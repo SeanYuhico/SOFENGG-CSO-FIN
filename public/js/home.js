@@ -42,18 +42,56 @@ $(document).ready(()=>{
     
     $(".editCard").click(function (e) {
         e.preventDefault();
-
-        key = $(".editCard").attr("data-id");
-        $("#inputEditTitle").val()
-        $("#inputEditDescription").val
-        $("#inputEditLink").val
-
+        key = $(this).parent().parent().attr("data-id");
+        let cardEl = document.querySelectorAll('[data-id="' + key + '"]')[0];
+        let titleEl = cardEl.querySelector('.cardTitle');
+        let descEl = cardEl.querySelector('.cardDesc');
+        $("#inputEditTitle").val(titleEl.textContent);
+        $("#inputEditDescription").val(descEl.textContent);
+        $("#inputEditLink").val(cardEl.href);
     });
 
     $(".deleteCard").click(function (e) {
         e.preventDefault();
         key = $(".editCard").attr("data-id");
     });
+
+    $("#saveCardEdit").click(function (e) {
+        e.preventDefault();
+        let valid = true;
+
+        if ($("#inputEditTitle").val.length === 0 || 
+            $("#inputEditDescription").val.length === 0 || 
+            $("#inputEditLink").val.length === 0){
+            valid = false;
+        }
+
+        if (valid) {
+            $.ajax({
+                url: "editCard",
+                method: "POST",
+                data: {
+                    key: key,
+                    title: $("#inputEditTitle").val,
+                    desc: $("#inputEditDescription"),
+                    link: $("#inputEditLink").val
+                },
+                success: function(result) {
+                    console.log(result)
+                    if (result.message === "SUCCESS") {
+                        console.log("wow it's a success")
+                        setTimeout(
+                            function() 
+                            {
+                            location.reload();
+                            }, 2000);   
+                        // close modal
+                    } else {
+                    }
+                }
+            });
+        }
+    })
     
     $("#deleteYesBtn").click(function (e) {
         e.preventDefault();
