@@ -8,7 +8,7 @@ $(document).ready(() => {
 
     let key, userEl, toggle = false;
     console.log("game time started")
-    console.log(getAllOrgNames());
+    
     // opens the modal
     $(".orgsEdit").click(function(){
         key = $(this).parent().parent().data('id');
@@ -74,19 +74,52 @@ $(document).ready(() => {
         let org = $("#orgName").val().toUpperCase();
         let email = $("#orgEmail").val();
         let password = $("#orgPassword").val();
+        let password2 = $("#orgPassword2").val();
         let valid;
-        
-        // insert validation 
-        // check if inputs are empty
-        if(org.length>0&&email.length>0&&password.length>0){
-            // check if the org is the same as the others
-                valid=true;
+        var orgs = [];
+
+        if(org.length!=0&&email.length!=0&&password.length!=0&&password==password2){
+         $.ajax({
+            url: "getOrgs",
+            method: "GET",
+            dataType: "json",
+            success: function(result){
+                console.log("yezz");
+                console.log("message" + result.message)
+                console.log(result);
+                if (result.message === "SUCCESS") {
+                    console.log(result.orgs);
+                    orgs = result.orgs;
+                } else {
+                    console.log("wasnt able to retrieve orgs")
+                    return null;
+                }
+            },async:false
+        });
+
+            for(var i = 0; i<orgs.length;i++){
+                if(org==orgs[i]){
+                    console.log("MERON NA");
+                    valid=false;
+                    $("#responseBody").text("The Organization Name That You Have Entered Already Exists.");
+                    break;
+                }
+                else{console.log("WALA PA");
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+                    console.log("VALID EMAIL ADDRESS");
+                    valid=true;
+                }else{
+                    console.log("INNNNNNVALID EMAIL ADDRESS");
+                    $("#responseBody").text("The Email That You Have Entered is Invalid.");
+                }
+                }
+            }   
         }
         else{
-            valid = false;
-            $("#responseBody").text("Please enter proper credentials.");
+            valid=false;
+            $("#responseBody").text("Please Enter Valid Credentials and Make Sure that the Passwords you Entered Match.");
         }
-        
+        //Final Creation of Account
         if (valid) {
             $.ajax({
                 url: "createUser",
@@ -99,7 +132,7 @@ $(document).ready(() => {
                 success: function(result) {
                     console.log(result)
                     if (result.message === "SUCCESS") {
-                        $("#responseBody").text("User created successfully.");
+                        $("#responseBody").text("User Created Successfully.");
                         setTimeout(location.reload.bind(location), 1100);
                     } else {
                         $("#responseBody").text("Failed to create user.");
@@ -142,35 +175,23 @@ $(document).ready(() => {
         });
     });
 
-
-    function getAllOrgNames () {
-        $.ajax({
-            url: "getOrgs",
-            method: "GET",
-            dataType: "json",
-            success: function(result){
-                console.log("yezz");
-                console.log("message" + result.message)
-                console.log(result);
-                if (result.message === "SUCCESS") {
-                    
-                    return result.orgs;
-                } else {
-                    return null;
-                }
-            }
-        });
-    }
-    
     
     $("#editEmailBtn").click(function(e){
         e.preventDefault();
         console.log("#editEmailBtn");
         let email = $("#newEmailAddress").val();
-        let valid = true;
+        let valid;
 
         // insert code for validation        
         // check if it's a legitimate email string
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+            console.log("VALID EMAIL ADDRESS");
+            valid=true;
+        }else{
+            console.log("INNNNNNVALID EMAIL ADDRESS");
+            $("#responseBody2").text("The Email That You Have Entered is Invalid.");
+        }
+
 
         if (valid === true) {
             $.ajax({
@@ -186,11 +207,11 @@ $(document).ready(() => {
                     console.log(result);
                     if (result.message === "SUCCESS") {
                         console.log("woo");
-                        $("#responseBody").text("Your email is now " + email + "!");
+                        $("#responseBody2").text("Your email is now " + email + "!");
                         location.reload(true);
                     } else {
                         console.log("boo");
-                        $("#responseBody").text("Failed to edit email.");
+                        $("#responseBody2").text("Failed to edit email.");
                     }
 
                     toggle = false;
