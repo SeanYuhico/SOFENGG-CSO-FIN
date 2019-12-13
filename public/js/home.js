@@ -6,6 +6,8 @@ $(document).ready(()=>{
     $("#help-nav-link").removeAttr('class', 'active')
     $("#users-nav-link").removeAttr('class', 'active')
 
+    let key;
+
     $("#createCard").click(function (e) {
         e.preventDefault();
         let title = $("#createTitle").val();
@@ -29,6 +31,49 @@ $(document).ready(()=>{
                         {
                            location.reload();
                         }, 2000);   
+                } else {
+                }
+            }
+        });
+        
+
+    });
+    
+    
+    $(".editCard").click(function (e) {
+        e.preventDefault();
+
+        key = $(".editCard").attr("data-id");
+        $("#inputEditTitle").val()
+        $("#inputEditDescription").val
+        $("#inputEditLink").val
+
+    });
+
+    $(".deleteCard").click(function (e) {
+        e.preventDefault();
+        key = $(".editCard").attr("data-id");
+    });
+    
+    $("#deleteYesBtn").click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "deleteCard",
+            method: "DELETE",
+            data: {
+                key: key
+            },
+            success: function(result) {
+                console.log(result)
+                if (result.message === "SUCCESS") {
+                    console.log("wow it's a success")
+                    setTimeout(
+                        function() 
+                        {
+                           location.reload();
+                        }, 2000);   
+                    // close modal
                 } else {
                 }
             }

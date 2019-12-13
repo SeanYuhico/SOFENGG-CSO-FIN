@@ -1,10 +1,13 @@
 {
   "name": "sofengg-cso-fin",
   "version": "1.0.0",
+  "engines": {
+    "node" : "13.0.1"
+  },
   "description": "CSO Fin Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
