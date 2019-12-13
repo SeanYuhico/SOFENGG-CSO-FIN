@@ -13,6 +13,7 @@
         {{!-- <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"> --}}
         <link href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css" rel="stylesheet" type="text/css">
         <link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="../css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/animate.css">
         <link href="../css/animate.min.css" rel="stylesheet">
@@ -38,7 +39,13 @@
         <div id="WAT">
             
             <h1 id="documentLabel">{{org}} DOCUMENT LOGS </h1> <br/>
-            <div id="temp-box" class="temp-box" >
+            
+            <div id="div-date" data-column="0">
+                <span>Date Submitted: </span>
+                <input type="text" id="col0_filter" class="form-control column_filter glyphicon" placeholder="&#xe109" data-input>
+                {{!-- <input type="text" id="col0_filter" class="form-control column_filter glyphicon" placeholder="&#xe109" data-input> --}}
+            </div>
+            <div id="temp-box" class="temp-box" > 
                 
                 <div data-column="1">
                     <span>Submitted By: </span>
@@ -123,7 +130,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/wow.min.js"></script>
         <script src="../js/document-tracker.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script>
             wow = new WOW({}).init();
             
@@ -161,11 +168,13 @@
                 let b = document.querySelector(".b");
                 let a = document.querySelector(".a");
                 let c = document.querySelector(".c");
+                let datebox = document.getElementById("div-date");
                 let temp = document.getElementById("temp-box");
                 let header = document.getElementById("documentLabel");
                 let children = [...document.querySelector(".temp-box").children];
                 a.appendChild(header);
-                b.appendChild(temp)
+                b.appendChild(temp);
+                c.appendChild(datebox);
                 /*
                 let frag = document.createDocumentFragment();
                 let i = 0;
