@@ -172,7 +172,7 @@
   background-color: #087830;
   color: white;
   padding: 10px 30px;
-  margin-left: 135px;
+  margin-left: 30%;
   margin-top: -50px;
   position:absolute;
   z-index: 1;
@@ -184,7 +184,7 @@
   color: white;
   padding: 10px 30px;
   margin-top: -50px;
-  margin-left: 230px;
+  margin-left: calc(30% + 100px);
   position:absolute;
   z-index: 1;
 }
@@ -312,7 +312,7 @@
   background-color: #124d25;
 }
 
-img{
+.card{
   box-shadow: 8px 8px 12px rgba(64, 95, 80, 0.5);
   border-radius: 8px;
 }
@@ -343,8 +343,8 @@ body {
 	font-size:14px;
 	font-weight:300;
 	line-height:1.6em;
-	color:#fff;
-	background-color:#fff;
+	background-color: #ecf4ee!important;
+	/* background-color:#fff; */
 	overflow-x:hidden;
 	display: unset;
 	flex-direction: column;
@@ -503,7 +503,7 @@ a:hover {
 	margin-top:-20px;
 }
 
-.slider img {
+.slider .card {
     width: 100%;
 }
 
@@ -1107,16 +1107,19 @@ ul.social_icons li  a i{
 }
 
 .gallery figure {
-	position: relative;	
+	position: relative;
 	margin-top:30px;
 	margin-bottom:30px;
-	background-color: #272727;
+	color: black;
+	background-color: #fff;
 	text-align: center;
-  cursor: pointer;
-  border-radius: 25px;
+	cursor: pointer;
+	border-radius: 25px;
+	min-height: 210px;
+	min-width: 280px;
 }
 
-.gallery figure img {
+.gallery figure .card {
 	position: relative;
 	display: block;
 	opacity: 0.8;
@@ -1156,7 +1159,7 @@ figure.effect-marley p {
 
 figure.effect-marley p {
 	bottom: 30px;
-	color:#fff;
+	color: #11280c;
 	line-height: 1.5;
 	-webkit-transform: translate3d(0,100%,0);
 	transform: translate3d(0,100%,0);
@@ -1164,7 +1167,7 @@ figure.effect-marley p {
 
 figure.effect-marley h4 {
 	top: 30px;
-	color:#fff;
+	color: #11280c;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,20px,0);
@@ -1244,7 +1247,7 @@ figure.effect-marley:hover p {
   background-size: cover;
   background-position: 0 0;
   background-repeat: no-repeat;
-  background-image: url(../img/7.jpg);
+  background-image: url(../.card/7.jpg);
 }
 
 /* --- Map --- */

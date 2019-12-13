@@ -9,14 +9,14 @@
     <div class="container card-container">
 
       {{#each card}}
-
-      <a href={{link}}>
+      <a class="cardLink" href={{link}}>
         <div class="col-md-4">
-          <figure class="effect-marley">
-            <img src="../images/11.jpg"  alt="" class="img-responsive">
-              <h4>{{cardTitle}}</h4>
-              <p>{{cardDesc}}</p>
-          </figure></div></a>
+          <figure class="effect-marley card">
+              <h4 class="cardTitle">{{cardTitle}}</h4>
+              <p class="cardDesc">{{cardDesc}}</p>
+          </figure>
+        </div>
+      </a>
       {{/each}}
 
 
