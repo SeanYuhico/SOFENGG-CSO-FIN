@@ -56,6 +56,9 @@ $(document).ready(() => {
                     }, 
                     success: function(result){
                         console.log("here?");
+                        setTimeout(function() {
+                            location.reload(true);
+                        }, 2000);  
                         //location.reload(true);
                         //place db stuff here
                     }
@@ -208,7 +211,9 @@ $(document).ready(() => {
                     if (result.message === "SUCCESS") {
                         console.log("woo");
                         $("#responseBody2").text("Your email is now " + email + "!");
-                        location.reload(true);
+                        setTimeout(function() {
+                            location.reload(true);
+                        }, 2000);  
                     } else {
                         console.log("boo");
                         $("#responseBody2").text("Failed to edit email.");
@@ -240,7 +245,9 @@ $(document).ready(() => {
                 console.log(result);
                 if (result.message === "SUCCESS") {
                     console.log(result.org)
-                    location.reload(true);
+                    setTimeout(function() {
+                        location.reload(true);
+                    }, 2000);  
                 } else {
                     console.log("boo");
                 }

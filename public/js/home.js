@@ -26,11 +26,9 @@ $(document).ready(()=>{
                 console.log(result)
                 if (result.message === "SUCCESS") {
                     console.log("wow it's a success")
-                    setTimeout(
-                        function() 
-                        {
-                           location.reload();
-                        }, 2000);   
+                    setTimeout(function() {
+                        location.reload(true);
+                    }, 2000);   
                 } else {
                 }
             }
@@ -60,10 +58,17 @@ $(document).ready(()=>{
         e.preventDefault();
         let valid = true;
 
-        if ($("#inputEditTitle").val.length === 0 || 
-            $("#inputEditDescription").val.length === 0 || 
-            $("#inputEditLink").val.length === 0){
+        let title = document.getElementById('inputEditTitle').value
+        let description = document.getElementById('inputEditDescription').value
+        let link = document.getElementById('inputEditLink').value
+
+        console.log($("#inputEditTitle").val)
+
+        if (title.length === 0 || 
+            description.length === 0 || 
+            link.length === 0){
             valid = false;
+            console.log("empty");
         }
 
         if (valid) {
@@ -72,9 +77,9 @@ $(document).ready(()=>{
                 method: "POST",
                 data: {
                     key: key,
-                    title: $("#inputEditTitle").val,
-                    desc: $("#inputEditDescription"),
-                    link: $("#inputEditLink").val
+                    title: title,
+                    desc: description,
+                    link: link
                 },
                 success: function(result) {
                     console.log(result)
@@ -83,7 +88,7 @@ $(document).ready(()=>{
                         setTimeout(
                             function() 
                             {
-                            location.reload();
+                            location.reload(true);
                             }, 2000);   
                         // close modal
                     } else {
