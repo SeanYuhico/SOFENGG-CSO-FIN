@@ -201,3 +201,16 @@ margin-bottom: 30px;
                         #069e34 51%,
                         #096b3a 75%);
 }
+
+.b {
+    display: flex;
+    margin-top: 20px;
+}
+
+.c {
+    margin-right: 20px;
+}
+
+div span {
+    width: 120px;
+}
