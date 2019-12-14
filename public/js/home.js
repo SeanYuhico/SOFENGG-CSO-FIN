@@ -51,7 +51,7 @@ $(document).ready(()=>{
 
     $(".deleteCard").click(function (e) {
         e.preventDefault();
-        key = $(".editCard").attr("data-id");
+        key = $(this).parent().parent().parent().attr("data-id");
     });
 
     $("#saveCardEdit").click(function (e) {
