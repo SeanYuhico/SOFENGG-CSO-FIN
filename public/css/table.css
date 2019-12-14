@@ -115,12 +115,13 @@ td, th {
   border: 0.5px solid #ddd;
   font-size: 12px;
   padding: 8px;
+  max-width: 300px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2;}
 
 tr:hover {
-  background-color: #ddd;
+  background-color: #ecf7ef;
 }
 
 th {
@@ -186,7 +187,7 @@ margin-bottom: 30px;
 }
 
 .dataTables_scrollBody::-webkit-scrollbar {
-    width: 6px;
+    width: 17px;
     background-color: none;
 }
 
