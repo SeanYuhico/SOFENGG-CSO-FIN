@@ -222,7 +222,8 @@ function updateBalanceDebtsSheet (req, res) {
     console.log("updateBalanceDebtsSheet")
     let org = req.body.org;
     let sheetKey = req.body.sheetKey;
-    userDB.UpdateBalanceDebtsSheet(org, sheetKey, (err) => {
+    let key = sheetKey.split("/");
+    userDB.UpdateBalanceDebtsSheet(org, key[5], (err) => {
         if (err) {
             console.log("Update Failure");
             res.send("FAIL");
